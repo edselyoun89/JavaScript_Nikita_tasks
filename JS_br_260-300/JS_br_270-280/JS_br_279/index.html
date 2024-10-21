@@ -1,11 +1,22 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Изменение значения элемента</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Измените значение</h1>
+    
+    <select id="elem">
+        <option value="">Выберите опцию</option>
+        <option value="Опция 1">Опция 1</option>
+        <option value="Опция 2">Опция 2</option>
+        <option value="Опция 3">Опция 3</option>
+    </select>
+
+    <p>Выбранная опция: <span id="selectedValue"></span></p>
+
+</body>
 </html>

@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обновление текста</title>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <h1>Обновление текста при потере фокуса</h1>
+    
+    <div id="elem" contenteditable="true" style="border: 1px solid #ccc; padding: 10px; width: 300px;">
+        Напишите что-нибудь здесь...
+    </div>
+    
+    <p id="p">Здесь будет отображаться текст из блока выше.</p>
+
+</body>
 </html>
