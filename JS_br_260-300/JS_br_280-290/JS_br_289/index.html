@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отслеживание движения мыши</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #elem {
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            font-size: 24px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="elem">Движение мыши</div>
+
+    <script>
+        window.onload = function() {
+            let elem = document.getElementById('elem');
+            
+            document.addEventListener('mousemove', function(event) {
+                elem.innerHTML = event.clientX + ' : ' + event.clientY; 
+            });
+        };
+    </script>
+</body>
 </html>

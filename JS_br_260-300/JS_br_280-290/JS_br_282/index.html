@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event Handling</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file if needed -->
+</head>
+<body>
+    <h1>Пример работы с событиями JavaScript</h1>
+
+    <label for="mySelect">Выберите опцию:</label>
+    <select id="mySelect">
+        <option value="1">Опция 1</option>
+        <option value="2">Опция 2</option>
+        <option value="3">Опция 3</option>
+    </select>
+    <button id="myButton">Показать выбранное</button>
+    <p id="myParagraph"></p>
+
+    <label for="yearSelect">Выберите год:</label>
+    <select id="yearSelect">
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+    </select>
+    <p id="result"></p>
+
+    <label for="daysOfWeek">Выберите день недели:</label>
+    <select id="daysOfWeek">
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+        <option value="7">Воскресенье</option>
+    </select>
+    <p id="message"></p>
+
+    <script src="script.js"></script>
+</body>
 </html>

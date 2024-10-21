@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример работы с textarea и checkbox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+        textarea, button {
+            margin: 5px 0;
+            width: 100%;
+            max-width: 300px;
+        }
+        div {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Взаимодействие с textarea и checkbox</h1>
+    
+    <!-- Textarea и div для отображения текста -->
+    <label for="textarea">Введите текст:</label>
+    <textarea id="textarea" rows="4"></textarea>
+    
+    <div id="displayDiv"></div>
+
+    <!-- Checkbox и кнопка для части 2 -->
+    <label for="checkbox">Отметьте для вывода 111:</label>
+    <input type="checkbox" id="checkbox">
+    
+    <button id="button">Показать результат</button>
+    <div id="div"></div>
+
+    <!-- Checkbox и кнопка для части 3 -->
+    <label for="checkbox1">Отметьте для вывода в консоль:</label>
+    <input type="checkbox" id="checkbox1">
+    
+    <button id="button1">Вывести в консоль</button>
+
+    <script>
+        window.onload = function() {
+            // Часть 1: Обновление div с текстом из textarea
+            let textarea = document.querySelector('textarea');
+            let div = document.querySelector('#displayDiv');
+            
+            textarea.addEventListener('input', function() {
+                div.textContent = textarea.value;
+            });
+
+            // Часть 2: Изменение текста в div в зависимости от состояния checkbox
+            let checkbox = document.querySelector('#checkbox');
+            let button = document.querySelector('#button');
+            let div1 = document.querySelector('#div');
+    
+            button.addEventListener('click', function() {
+                if (checkbox.checked) {
+                    div1.textContent = '111';
+                } else {
+                    div1.textContent = '222';
+                }
+            });
+
+            // Часть 3: Вывод в консоль в зависимости от состояния checkbox
+            let checkbox1 = document.querySelector('[type="checkbox"]');
+            let button1 = document.querySelector('#button1');
+            
+            button1.addEventListener('click', function() {
+                if (checkbox1.checked) {
+                    console.log('+++');
+                } else {
+                    console.log('---');
+                }
+            });
+        };
+    </script>
+</body>
 </html>

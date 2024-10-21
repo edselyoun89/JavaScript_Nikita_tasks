@@ -1,11 +1,48 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Selection Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Выбор элемента по номеру</h1>
+    
+    <label for="input">Введите номер элемента:</label>
+    <input type="number" id="input" min="1" max="7" placeholder="1-7">
+    
+    <label for="select">Выбор элемента:</label>
+    <select id="select">
+        <option value="1">Элемент 1</option>
+        <option value="2">Элемент 2</option>
+        <option value="3">Элемент 3</option>
+        <option value="4">Элемент 4</option>
+        <option value="5">Элемент 5</option>
+        <option value="6">Элемент 6</option>
+        <option value="7">Элемент 7</option>
+    </select>
+    
+    <h2>Выберите день недели:</h2>
+    <select id="weekday-select">
+        <option value="0">Воскресенье</option>
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+    </select>
+
+    <script src="script.js"></script>
+</body>
 </html>

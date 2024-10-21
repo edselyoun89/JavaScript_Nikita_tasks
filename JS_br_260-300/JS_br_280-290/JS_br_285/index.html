@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример обновления опций</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добавление значений к опциям</h1>
+    
+    <label for="mySelect">Выберите элемент:</label>
+    <select id="mySelect">
+        <option value="1">Элемент 1</option>
+        <option value="2">Элемент 2</option>
+        <option value="3">Элемент 3</option>
+        <option value="4">Элемент 4</option>
+        <option value="5">Элемент 5</option>
+        <option value="6">Элемент 6</option>
+        <option value="7">Элемент 7</option>
+    </select>
+
+    <script>
+        window.onload = function() {
+            const mySelect = document.getElementById("mySelect");
+            const options = mySelect.options;
+
+            for (let i = 0; i < options.length; i++) {
+                options[i].text += " " + options[i].value;
+            }
+        };
+    </script>
+</body>
 </html>

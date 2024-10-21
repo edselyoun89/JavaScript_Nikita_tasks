@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработка кликов и двойных кликов</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        #elem {
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="elem">Нажми или дважды нажми на меня</div>
+
+    <script>
+        window.onload = function() {
+            let elem = document.querySelector('#elem');
+            
+            elem.addEventListener('click', func);
+            elem.addEventListener('dblclick', func);
+            
+            function func(event) {
+                if (event.type === 'click') {
+                    event.target.style.backgroundColor = 'green';
+                } else if (event.type === 'dblclick') {
+                    event.target.style.backgroundColor = 'red';
+                }
+            }
+        };
+    </script>
+</body>
 </html>

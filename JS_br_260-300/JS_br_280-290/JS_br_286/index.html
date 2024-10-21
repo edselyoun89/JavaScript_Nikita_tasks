@@ -1,11 +1,87 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Взаимодействие с выпадающим списком</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+        select, button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Пример работы с выпадающими списками</h1>
+    
+    <!-- Выпадающий список для части 1 -->
+    <label for="firstSelect">Первый выпадающий список:</label>
+    <select id="firstSelect">
+        <option value="1">Элемент 1</option>
+        <option value="2">Элемент 2</option>
+        <option value="3">Элемент 3</option>
+        <option value="4">Элемент 4</option>
+    </select>
+
+    <!-- Выпадающий список и кнопка для частей 2, 3 и 4 -->
+    <label for="mySelect">Выберите элемент:</label>
+    <select id="mySelect">
+        <option value="1">Элемент A</option>
+        <option value="2">Элемент B</option>
+        <option value="3">Элемент C</option>
+        <option value="4">Элемент D</option>
+    </select>
+    
+    <br>
+    <button id="myButton">Выбрать последний элемент</button>
+    <button id="btn">Показать выбранный элемент</button>
+
+    <script>
+        window.onload = function() {
+            // Часть 1: Добавление "!" к выбранной опции и "?" к остальным
+            const select = document.querySelector('select');
+            for (let i = 0; i < select.options.length; i++) {
+                const option = select.options[i];
+                if (option.selected) {
+                    option.textContent += '!';
+                } else {
+                    option.textContent += '?';
+                }
+            }
+
+            // Часть 2: Кнопка для выбора последнего элемента
+            const mySelect = document.getElementById('mySelect');
+            const myButton = document.getElementById('myButton');
+            
+            myButton.addEventListener('click', () => {
+                mySelect.selectedIndex = mySelect.options.length - 1;
+            });
+
+            // Часть 3: Показать текст выбранной опции через alert
+            const select1 = document.getElementById('mySelect');
+            const button = document.getElementById('btn');
+            
+            button.addEventListener('click', function() {
+                const selectedOption = select1.options[select1.selectedIndex];
+                alert(selectedOption.textContent);
+            });
+
+            // Часть 4: Добавить "!" к выбранной опции при нажатии кнопки
+            let select2 = document.getElementById('mySelect');
+            let button1 = document.getElementById('myButton');
+            
+            button1.addEventListener('click', function() {
+                let selectedOption = select2.options[select2.selectedIndex];
+                selectedOption.textContent += '!';
+            });
+        };
+    </script>
+</body>
 </html>
