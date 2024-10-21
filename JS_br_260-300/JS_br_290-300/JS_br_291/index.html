@@ -1,11 +1,31 @@
 <!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Моя первая программа</title>
-		<script src="script.js?v=1"></script>
-	</head>
-	<body>
-		Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos neque recusandae nisi odio, vero accusamus ullam, nemo dicta quia ducimus distinctio, inventore rem eius veniam voluptatibus debitis perferendis est veritatis.
-	</body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Example</title>
+    <style>
+        ul {
+            list-style-type: none; /* Убираем маркеры списка */
+            padding: 0;           /* Убираем отступы */
+        }
+        li {
+            padding: 10px;
+            cursor: pointer;      /* Указатель при наведении */
+            background-color: lightgray;
+            margin: 5px 0;       /* Отступ между элементами списка */
+        }
+        li:hover {
+            background-color: darkgray; /* Цвет при наведении */
+        }
+    </style>
+</head>
+<body>
+    <ul id="elem">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
 </html>
