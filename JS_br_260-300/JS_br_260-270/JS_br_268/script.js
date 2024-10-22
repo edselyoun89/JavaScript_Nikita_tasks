@@ -1,3 +1,3 @@
 let parent = document.querySelector('#parent');
-elems1 = parent.querySelectorAll('www')
-elems2 = parent.querySelectorAll('ggg')
+let elems1 = parent.querySelectorAll('.www'); // Используем . перед классом
+let elems2 = parent.querySelectorAll('.ggg'); // Используем . перед классом
