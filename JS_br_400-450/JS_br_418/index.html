@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        input {
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <input type="text" placeholder="Введите текст...">
+    <p id="output"></p>
+
+    <script>
+        let input = document.querySelector('input');
+        let output = document.querySelector('#output');
+
+        input.addEventListener('keypress', function(event) {
+            // Вывод значений нажатых клавиш и их коды
+            console.log('Нажатая клавиша:', event.key);
+            console.log('Код клавиши:', event.code);
+        });
+
+        // Задача 5: Обновление текста в абзаце по нажатию Enter
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                output.textContent = input.value; // Перемещаем текст в абзац
+                input.value = ''; // Очищаем инпут
+            }
+        });
+    </script>
+
+</body>
+</html>

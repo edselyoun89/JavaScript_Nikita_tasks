@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача 1: Получение текста выбранного пункта -->
+    <h3>Задача 1: Получение текста выбранного пункта</h3>
+    <select id="select1">
+        <option value="1">Первый</option>
+        <option value="2">Второй</option>
+        <option value="3">Третий</option>
+        <option value="4">Четвертый</option>
+    </select>
+    <button id="getTextButton">Получить текст выбранного пункта</button>
+    <p id="outputText"></p>
+
+    <script>
+        let select1 = document.querySelector('#select1');
+        let getTextButton = document.querySelector('#getTextButton');
+        let outputText = document.querySelector('#outputText');
+
+        getTextButton.addEventListener('click', function() {
+            let selectedOption = select1[select1.selectedIndex]; // Получаем выбранный пункт
+            outputText.textContent = selectedOption.text; // Выводим текст на экран
+        });
+    </script>
+
+    <!-- Задача 2: Добавление восклицательного знака к выбранному пункту -->
+    <h3>Задача 2: Добавление восклицательного знака к выбранному пункту</h3>
+    <select id="select2">
+        <option value="1">Первый</option>
+        <option value="2">Второй</option>
+        <option value="3">Третий</option>
+        <option value="4">Четвертый</option>
+    </select>
+    <button id="addExclamationButton">Добавить восклицательный знак</button>
+
+    <script>
+        let select2 = document.querySelector('#select2');
+        let addExclamationButton = document.querySelector('#addExclamationButton');
+
+        addExclamationButton.addEventListener('click', function() {
+            let selectedOption = select2[select2.selectedIndex]; // Получаем выбранный пункт
+            selectedOption.text += '!'; // Добавляем в конец текста восклицательный знак
+        });
+    </script>
+
+</body>
+</html>

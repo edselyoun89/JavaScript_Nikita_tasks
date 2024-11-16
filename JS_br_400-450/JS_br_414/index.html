@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <button id="elem">Нажми на меня!</button>
+
+    <script>
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function(event) {
+            console.log(event); // Выводим объект события в консоль
+        });
+    </script>
+
+</body>
+</html>

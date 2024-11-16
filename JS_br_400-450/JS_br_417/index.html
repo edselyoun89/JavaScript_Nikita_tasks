@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        ul {
+            padding: 30px;
+            border: 1px solid red;
+        }
+        li {
+            list-style-type: none;
+            margin-bottom: 20px;
+            border: 1px dashed black;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <script>
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                event.target.textContent += '!'; // Добавляем восклицательный знак
+            } else if (event.target.tagName === 'UL') {
+                console.log('Клик по тегу ul'); // Выводим информацию в консоль
+            }
+        });
+    </script>
+
+</body>
+</html>

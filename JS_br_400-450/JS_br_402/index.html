@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        #inputCount {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- №1: Инпут для отслеживания длины текста -->
+    <input id="inputLength" type="text" placeholder="Введите текст">
+    <p id="message"></p>
+
+    <!-- №2: Инпут с ограничением в 5 символов и абзац -->
+    <input id="inputCount" type="text" maxlength="10" placeholder="Максимум 5 символов">
+    <p id="countMessage"></p>
+
+    <script>
+        // №1: Вывод сообщения при достижении 5 символов
+        let inputLength = document.querySelector('#inputLength');
+        let message = document.querySelector('#message');
+
+        inputLength.addEventListener('input', function() {
+            if (this.value.length === 5) {
+                message.textContent = 'Достигнута длина в 5 символов!';
+            } else {
+                message.textContent = ''; // Очистить сообщение, если длина меньше или больше
+            }
+        });
+
+        // №2: Отслеживание количества оставшихся символов
+        let inputCount = document.querySelector('#inputCount');
+        let countMessage = document.querySelector('#countMessage');
+        let maxLength = 5;
+
+        inputCount.addEventListener('input', function() {
+            let remaining = maxLength - this.value.length;
+
+            if (remaining >= 0) {
+                countMessage.textContent = `Осталось символов: ${remaining}`;
+            } else {
+                countMessage.textContent = `Превышено на ${-remaining} символа`;
+            }
+        });
+    </script>
+
+</body>
+</html>

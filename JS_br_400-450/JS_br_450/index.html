@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Задание 1
+            const btn1 = document.querySelector('#btn1');
+            const p1 = document.querySelector('#p1');
+            btn1.addEventListener('click', function() {
+                let count = 0;
+                setInterval(() => {
+                    p1.textContent = ++count;
+                }, 1000);
+            });
+
+            // Задание 2
+            const btn2 = document.querySelector('#btn2');
+            const p2 = document.querySelector('#p2');
+            p2.textContent = 10; // Начальное значение
+            btn2.addEventListener('click', function() {
+                let count = Number(p2.textContent);
+                const timerId = setInterval(() => {
+                    p2.textContent = --count;
+                    if (count <= 0) {
+                        clearInterval(timerId);
+                    }
+                }, 1000);
+            });
+
+            // Задание 3
+            const input3 = document.querySelector('#input3');
+            setInterval(() => {
+                input3.value = Math.pow(Number(input3.value), 2);
+            }, 1000);
+
+            // Задание 4
+            const input4 = document.querySelector('#input4');
+            const p4 = document.querySelector('#p4');
+            input4.addEventListener('blur', function() {
+                let count = Number(input4.value);
+                const timerId = setInterval(() => {
+                    if (count <= 0) {
+                        clearInterval(timerId);
+                    }
+                    p4.textContent = count--;
+                }, 1000);
+            });
+
+            // Задание 5
+            const input5 = document.querySelector('#input5');
+            const btn5 = document.querySelector('#btn5');
+            const p5 = document.querySelector('#p5');
+            btn5.addEventListener('click', function() {
+                let count = Number(input5.value);
+                p5.textContent = count;
+                const timerId = setInterval(() => {
+                    if (count <= 0) {
+                        clearInterval(timerId);
+                    }
+                    p5.textContent = count--;
+                }, 1000);
+            });
+
+            // Задание 6
+            const btn6Start = document.querySelector('#btn6Start');
+            const btn6Stop = document.querySelector('#btn6Stop');
+            const p6 = document.querySelector('#p6');
+            let timerId6;
+            btn6Start.addEventListener('click', function() {
+                let count = 0;
+                timerId6 = setInterval(() => {
+                    p6.textContent = ++count;
+                }, 1000);
+            });
+            btn6Stop.addEventListener('click', function() {
+                clearInterval(timerId6);
+            });
+
+            // Задание 7
+            const p7 = document.querySelector('#p7');
+            setInterval(() => {
+                p7.style.color = (p7.style.color === 'red') ? 'green' : 'red';
+            }, 1000);
+
+            // Задание 8
+            const p8 = document.querySelector('#p8');
+            setInterval(() => {
+                const date = new Date();
+                p8.textContent = date.toLocaleTimeString();
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <h2>Задание 1</h2>
+    <button id="btn1">Запустить таймер (Увеличить)</button>
+    <p id="p1">0</p>
+
+    <h2>Задание 2</h2>
+    <button id="btn2">Запустить таймер (Уменьшить)</button>
+    <p id="p2">10</p>
+
+    <h2>Задание 3</h2>
+    <input id="input3" type="number" value="2">
+
+    <h2>Задание 4</h2>
+    <input id="input4" type="number" value="5">
+    <p id="p4"></p>
+
+    <h2>Задание 5</h2>
+    <input id="input5" type="number">
+    <button id="btn5">Запустить обратный отсчет</button>
+    <p id="p5"></p>
+
+    <h2>Задание 6</h2>
+    <button id="btn6Start">Начать таймер</button>
+    <button id="btn6Stop">Остановить таймер</button>
+    <p id="p6"></p>
+
+    <h2>Задание 7</h2>
+    <p id="p7" style="color: red;">Этот текст меняет цвет</p>
+
+    <h2>Задание 8</h2>
+    <p id="p8"></p>
+</body>
+</html>

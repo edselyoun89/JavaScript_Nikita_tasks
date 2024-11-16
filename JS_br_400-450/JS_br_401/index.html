@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        #inputCheck {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- №1: Инпут и абзац -->
+    <input id="input1" type="text">
+    <p id="output1"></p>
+
+    <!-- №2: Чекбокс -->
+    <input id="checkbox" type="checkbox">
+    <p id="checkboxOutput"></p>
+
+    <!-- №4: Проверка длины текста в инпуте -->
+    <input id="inputCheck" type="text" placeholder="Введите текст">
+
+    <script>
+        // №1: Вывод текста из инпута в абзац по событию change
+        let input1 = document.querySelector('#input1');
+        let output1 = document.querySelector('#output1');
+
+        input1.addEventListener('change', function() {
+            output1.textContent = this.value;
+        });
+
+        // №2: Вывод состояния чекбокса по событию change
+        let checkbox = document.querySelector('#checkbox');
+        let checkboxOutput = document.querySelector('#checkboxOutput');
+
+        checkbox.addEventListener('change', function() {
+            checkboxOutput.textContent = checkbox.checked ? 'Чекбокс отмечен' : 'Чекбокс не отмечен';
+        });
+		
+		// №3:
+		// Событие blur возникает, когда элемент теряет фокус (например, когда пользователь уходит с инпута, нажав на другую область страницы).
+        // Событие change возникает, когда пользователь изменяет значение элемента (например, вводит новый текст в инпут) и перемещается с инпута, 
+		// например, нажимая Tab или кликая на другое место.
+
+        // №4: Изменение цвета границы в зависимости от длины текста в инпуте
+        let inputCheck = document.querySelector('#inputCheck');
+
+        inputCheck.addEventListener('change', function() {
+            if (this.value.length < 5) {
+                this.style.borderColor = 'green';
+            } else {
+                this.style.borderColor = 'red';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        #coordinates {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="coordinates">Координаты: (X: 0, Y: 0)</div>
+
+    <script>
+        let coordinatesDiv = document.querySelector('#coordinates');
+
+        document.addEventListener('mousemove', function(event) {
+            // Получаем координаты курсора
+            let x = event.clientX;
+            let y = event.clientY;
+
+            // Обновляем текст с координатами
+            coordinatesDiv.textContent = `Координаты: (X: ${x}, Y: ${y})`;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        "use strict";
+
+        // Получаем ссылку на элемент input
+        let elem = document.querySelector('#elem');
+        // Навешиваем обработчик события blur на input
+        elem.addEventListener('blur', func);
+
+        // Функция, вызываемая при потере фокуса
+        function func() {
+            alert(square.call(this)); // Используем call для передачи контекста
+            
+            // Внутренняя функция для вычисления квадрата
+            function square() {
+                return this.value * this.value; // Возвращает квадрат значения
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Инпут, на который навешан обработчик события -->
+    <input id="elem" value="3">
+</body>
+</html>

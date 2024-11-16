@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let elem = document.querySelector('#elem');
+
+            function func(surname, name) {
+                console.log(this.value + ', ' + surname + ' ' + name);
+            }
+
+            func.apply(elem, ['Smit', 'John']); // вызов с использованием apply
+        });
+    </script>
+</head>
+<body>
+    <input id="elem" value="hello">
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let startButton = document.querySelector('#start');
+            let timerId; // Переменная для хранения идентификатора таймера
+            let isRunning = false; // Флаг для проверки, запущен ли таймер
+
+            startButton.addEventListener('click', function() {
+                if (isRunning) return; // Если таймер уже запущен, выходим
+
+                isRunning = true; // Устанавливаем флаг, что таймер запущен
+                let count = 100; // Начальное значение
+
+                timerId = setInterval(() => {
+                    console.log(count--); // Выводим текущее значение и уменьшаем его на 1
+                    
+                    if (count < 0) {
+                        clearInterval(timerId); // Останавливаем таймер, когда значение меньше 0
+                        isRunning = false; // Сбрасываем флаг
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <button id="start">Start Countdown</button>
+</body>
+</html>

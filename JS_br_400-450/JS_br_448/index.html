@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Задание 1
+            // Таймер, который каждую секунду увеличивает значение инпута на 1
+            let elem1 = document.querySelector('#elem1');
+            setInterval(function() {
+                elem1.value = Number(elem1.value) + 1; // Преобразуем строку в число
+            }, 1000);
+
+            // Задание 2
+            // Таймер, который каждую секунду уменьшает значение инпута на 1
+            let elem2 = document.querySelector('#elem2');
+            setInterval(function() {
+                elem2.value = Number(elem2.value) - 1;
+            }, 1000);
+
+            // Задание 3
+            // Таймер, который останавливается, когда значение инпута становится 0
+            let elem3 = document.querySelector('#elem3');
+            let timerId3 = setInterval(function() {
+                elem3.value = Number(elem3.value) - 1;
+                if (elem3.value <= 0) {
+                    clearInterval(timerId3); // Останавливаем таймер
+                }
+            }, 1000);
+        });
+    </script>
+</head>
+<body>
+    <!-- Задание 1 -->
+    <input id="elem1" value="1">
+
+    <!-- Задание 2 -->
+    <input id="elem2" value="10">
+
+    <!-- Задание 3 -->
+    <input id="elem3" value="10">
+</body>
+</html>

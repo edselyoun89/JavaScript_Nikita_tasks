@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача: Выпадающий список с названиями месяцев -->
+    <h3>Выбор месяца</h3>
+    <select id="monthSelect">
+        <option value="0">Январь</option>
+        <option value="1">Февраль</option>
+        <option value="2">Март</option>
+        <option value="3">Апрель</option>
+        <option value="4">Май</option>
+        <option value="5">Июнь</option>
+        <option value="6">Июль</option>
+        <option value="7">Август</option>
+        <option value="8">Сентябрь</option>
+        <option value="9">Октябрь</option>
+        <option value="10">Ноябрь</option>
+        <option value="11">Декабрь</option>
+    </select>
+
+    <script>
+        let select = document.querySelector('#monthSelect');
+
+        // Получаем текущий месяц (от 0 до 11)
+        let currentMonth = new Date().getMonth();
+
+        // Устанавливаем выбранный месяц в селекте
+        select.value = currentMonth;
+    </script>
+
+</body>
+</html>

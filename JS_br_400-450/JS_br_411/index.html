@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача: Выпадающий список -->
+    <h3>Перебор пунктов выпадающего списка</h3>
+    <select id="optionSelect">
+        <option value="1">Первый</option>
+        <option value="2" selected>Второй</option>
+        <option value="3">Третий</option>
+        <option value="4">Четвертый</option>
+    </select>
+
+    <script>
+        let select = document.querySelector('#optionSelect');
+
+        // Перебираем все пункты списка
+        for (let option of select) {
+            if (option.selected) {
+                option.text += '!'; // Для выбранного пункта добавляем восклицательный знак
+            } else {
+                option.text += '?'; // Для невыбранных пунктов добавляем вопросительный знак
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        ul {
+            padding: 30px;
+            border: 1px solid red;
+        }
+        li {
+            list-style-type: none;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px dashed black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <button id="addItem">Добавить элемент</button>
+
+    <script>
+        let list = document.querySelector('#list');
+        let addItemButton = document.querySelector('#addItem');
+
+        // Делегирование события на ul
+        list.addEventListener('click', function(event) {
+            if (event.target.tagName === 'LI') {
+                event.target.textContent += '!'; // Добавляем восклицательный знак
+            }
+        });
+
+        // Добавление нового элемента li
+        addItemButton.addEventListener('click', function() {
+            let newItem = document.createElement('li');
+            newItem.textContent = `Item ${list.children.length + 1}`;
+            list.appendChild(newItem);
+        });
+    </script>
+
+</body>
+</html>

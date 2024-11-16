@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Задание 1
+            // Таймер, который каждые 1 секунду выводит '!'
+            let timerId1;
+            let start1 = document.querySelector('#start1');
+            let stop1 = document.querySelector('#stop1');
+
+            start1.addEventListener('click', function() {
+                timerId1 = setInterval(function() {
+                    console.log('!');
+                }, 1000);
+            });
+
+            stop1.addEventListener('click', function() {
+                clearInterval(timerId1);
+            });
+
+            // Задание 2
+            // Таймер, который каждую секунду уменьшает значение переменной на 1 и выводит его в консоль
+            let count2 = 100;
+            let timerId2;
+            let start2 = document.querySelector('#start2');
+            let stop2 = document.querySelector('#stop2');
+
+            start2.addEventListener('click', function() {
+                if (timerId2) return; // Если таймер уже запущен, выходим
+
+                timerId2 = setInterval(() => {
+                    console.log(count2--); // Уменьшаем значение на 1 и выводим его
+                    if (count2 < 0) {
+                        clearInterval(timerId2); // Останавливаем таймер
+                        timerId2 = null; // Сбрасываем ID таймера
+                    }
+                }, 1000);
+            });
+
+            stop2.addEventListener('click', function() {
+                clearInterval(timerId2); // Останавливаем таймер
+                timerId2 = null; // Сбрасываем ID таймера
+            });
+
+            // Задание 3
+            // Запуск и остановка таймера, выводящего текущее время
+            let timerId3;
+            let start3 = document.querySelector('#start3');
+            let stop3 = document.querySelector('#stop3');
+
+            start3.addEventListener('click', function() {
+                timerId3 = setInterval(function() {
+                    let date = new Date;
+                    console.log(date.getMinutes() + ' ' + date.getSeconds());
+                }, 1000);
+            });
+
+            stop3.addEventListener('click', function() {
+                clearInterval(timerId3);
+            });
+
+            // Задание 4
+            // Исправленный код из задания 3
+            let timerId4;
+            let start4 = document.querySelector('#start4');
+            let stop4 = document.querySelector('#stop4');
+
+            start4.addEventListener('click', function() {
+                timerId4 = setInterval(function() {
+                    let date = new Date;
+                    console.log(date.getMinutes() + ' ' + date.getSeconds());
+                }, 1000);
+            });
+
+            stop4.addEventListener('click', function() {
+                clearInterval(timerId4);
+            });
+
+            // Задание 5
+            // Исправленный код, который не использует неправильный селектор
+            let timerId5;
+            let start5 = document.querySelector('#start5');
+            let stop5 = document.querySelector('#stop5');
+
+            start5.addEventListener('click', function() {
+                timerId5 = setInterval(function() {
+                    let date = new Date;
+                    console.log(date.getMinutes() + ' ' + date.getSeconds());
+                }, 1000);
+            });
+
+            stop5.addEventListener('click', function() {
+                clearInterval(timerId5);
+            });
+
+            // Задание 6
+            // Исправленный код, который использует правильные селекторы и счётчик
+            let timerId6;
+            let start6 = document.querySelector('#start6');
+            let stop6 = document.querySelector('#stop6');
+
+            start6.addEventListener('click', function() {
+                if (timerId6) return; // Если таймер уже запущен, выходим
+
+                timerId6 = setInterval(function() {
+                    let date = new Date;
+                    console.log(date.getMinutes() + ' ' + date.getSeconds());
+                }, 1000);
+                start6.disabled = true; // Отключаем кнопку старт
+            });
+
+            stop6.addEventListener('click', function() {
+                clearInterval(timerId6);
+                timerId6 = null; // Сбрасываем ID таймера
+                start6.disabled = false; // Включаем кнопку старт
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Задание 1 -->
+    <button id="start1">Start Timer 1</button>
+    <button id="stop1">Stop Timer 1</button>
+
+    <!-- Задание 2 -->
+    <button id="start2">Start Countdown</button>
+    <button id="stop2">Stop Countdown</button>
+
+    <!-- Задание 3 -->
+    <input type="submit" id="start3" value="Start Current Time">
+    <input type="submit" id="stop3" value="Stop Current Time">
+
+    <!-- Задание 4 -->
+    <input type="submit" id="start4" value="Start Time (Fix)">
+    <input type="submit" id="stop4" value="Stop Time (Fix)">
+
+    <!-- Задание 5 -->
+    <input type="submit" id="start5" value="Start Time (Corrected)">
+    <input type="submit" id="stop5" value="Stop Time (Corrected)">
+
+    <!-- Задание 6 -->
+    <input type="submit" id="start6" value="Start Time with Button Control">
+    <input type="submit" id="stop6" value="Stop Time with Button Control">
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача: Выпадающий список и кнопка -->
+    <h3>Выбор последнего пункта списка</h3>
+    <select id="select">
+        <option value="1">Первый</option>
+        <option value="2">Второй</option>
+        <option value="3">Третий</option>
+        <option value="4">Четвертый</option>
+    </select>
+    <button id="selectButton">Выбрать последний пункт</button>
+
+    <script>
+        let select = document.querySelector('#select');
+        let button = document.querySelector('#selectButton');
+
+        button.addEventListener('click', function() {
+            let lastIndex = select.options.length - 1; // Получаем индекс последнего пункта
+            select.options[lastIndex].selected = true; // Устанавливаем последний пункт как выбранный
+        });
+    </script>
+
+</body>
+</html>

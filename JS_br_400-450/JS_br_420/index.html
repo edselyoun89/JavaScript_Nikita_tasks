@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        a {
+            display: inline-block;
+            margin: 10px 0;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        input {
+            margin: 5px 0;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://example.com" id="link1">Перейти на Example</a>
+    <a href="https://google.com" id="link2">Перейти на Google</a>
+
+    <h3>Суммирование чисел</h3>
+    <input type="number" id="input1" placeholder="Первое число">
+    <input type="number" id="input2" placeholder="Второе число">
+    <a href="#" id="sumLink">Сложить числа</a>
+    <p id="result"></p>
+
+    <script>
+        // Задача 1: Добавление href к ссылке без перехода
+        let link1 = document.querySelector('#link1');
+        let link2 = document.querySelector('#link2');
+
+        link1.addEventListener('click', function(event) {
+            event.preventDefault();
+            this.textContent += ` (${this.href})`;
+        });
+
+        link2.addEventListener('click', function(event) {
+            event.preventDefault();
+            this.textContent += ` (${this.href})`;
+        });
+
+        // Задача 2: Суммирование чисел
+        let sumLink = document.querySelector('#sumLink');
+        let input1 = document.querySelector('#input1');
+        let input2 = document.querySelector('#input2');
+        let result = document.querySelector('#result');
+
+        sumLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            let num1 = parseFloat(input1.value);
+            let num2 = parseFloat(input2.value);
+            let total = num1 + num2;
+            result.textContent = `Сумма: ${total}`;
+            input1.value = '';
+            input2.value = '';
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Перебор пунктов списка</title>
+</head>
+<body>
+
+    <!-- Задача: Выпадающий список -->
+    <h3>Перебор пунктов выпадающего списка</h3>
+    <select id="valueSelect">
+        <option value="1">Пункт 1</option>
+        <option value="2">Пункт 2</option>
+        <option value="3">Пункт 3</option>
+        <option value="4">Пункт 4</option>
+    </select>
+
+    <script>
+        let select = document.querySelector('#valueSelect');
+
+        // Перебираем все пункты списка
+        for (let option of select) {
+            option.textContent += ' (' + option.value + ')'; // Добавляем значение атрибута value к тексту
+        }
+    </script>
+
+</body>
+</html>

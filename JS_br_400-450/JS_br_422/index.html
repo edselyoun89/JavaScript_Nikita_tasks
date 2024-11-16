@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        div, ul, li {
+            padding: 20px;
+        }
+        div {
+            border: 1px solid red;
+        }
+        ul {
+            border: 1px solid orange;
+        }
+        li {
+            border: 1px solid green;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+    </div>
+
+    <script>
+        let div = document.querySelector('div');
+
+        div.addEventListener('click', function(event) {
+            if (event.target.matches('li')) {
+                event.target.textContent += '!'; // Добавление восклицательного знака
+            }
+            if (event.target.matches('ul')) {
+                console.log('Клик именно по ul');
+            }
+        });
+    </script>
+
+</body>
+</html>

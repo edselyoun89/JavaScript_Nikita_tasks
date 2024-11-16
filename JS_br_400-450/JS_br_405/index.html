@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача 1 -->
+    <h3>Задача 1: Вывод выбранного пункта в абзац по клику на кнопку</h3>
+    <select id="select1">
+        <option value="one">one</option>
+        <option value="two" selected>two</option>
+        <option value="three">three</option>
+    </select>
+    <button id="button1">Вывести</button>
+    <p id="paragraph1"></p>
+
+    <!-- Задача 2 -->
+    <h3>Задача 2: Определение високосного года</h3>
+    <select id="select2">
+        <!-- Годы от 2020 до 2030 -->
+    </select>
+    <p id="paragraph2"></p>
+
+    <script>
+        // Задача 1
+        let select1 = document.querySelector('#select1');
+        let button1 = document.querySelector('#button1');
+        let paragraph1 = document.querySelector('#paragraph1');
+
+        button1.addEventListener('click', function() {
+            paragraph1.textContent = select1.value;
+        });
+
+        // Задача 2
+        let select2 = document.querySelector('#select2');
+        let paragraph2 = document.querySelector('#paragraph2');
+
+        // Создание опций для выпадающего списка годов от 2020 до 2030
+        for (let year = 2020; year <= 2030; year++) {
+            let option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            select2.appendChild(option);
+        }
+
+        // Проверка на високосный год
+        select2.addEventListener('change', function() {
+            let year = parseInt(select2.value);
+            if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
+                paragraph2.textContent = year + ' год - високосный';
+            } else {
+                paragraph2.textContent = year + ' год - не високосный';
+            }
+        });
+    </script>
+
+</body>
+</html>

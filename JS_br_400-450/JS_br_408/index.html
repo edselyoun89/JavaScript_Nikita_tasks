@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача 1: Выбор пункта списка по значению из инпута -->
+    <h3>Задача 1: Выбор пункта списка по числу из инпута</h3>
+    <input type="number" id="indexInput" placeholder="Введите номер">
+    <select id="numberSelect">
+        <option value="0">ноль</option>
+        <option value="1">один</option>
+        <option value="2">два</option>
+        <option value="3">три</option>
+        <option value="4">четыре</option>
+    </select>
+
+    <script>
+        let indexInput = document.querySelector('#indexInput');
+        let numberSelect = document.querySelector('#numberSelect');
+
+        indexInput.addEventListener('blur', function() {
+            let index = parseInt(this.value);
+            if (index >= 0 && index < numberSelect.options.length) {
+                numberSelect.selectedIndex = index;
+            }
+        });
+    </script>
+
+    <!-- Задача 2: Выбор текущего дня недели -->
+    <h3>Задача 2: Выбор текущего дня недели</h3>
+    <select id="daySelect">
+        <option value="0">Понедельник</option>
+        <option value="1">Вторник</option>
+        <option value="2">Среда</option>
+        <option value="3">Четверг</option>
+        <option value="4">Пятница</option>
+        <option value="5">Суббота</option>
+        <option value="6">Воскресенье</option>
+    </select>
+
+    <script>
+        let daySelect = document.querySelector('#daySelect');
+
+        // Получаем текущий день недели (0 для понедельника до 6 для воскресенья)
+        let currentDay = new Date().getDay();
+
+        // Устанавливаем выбранный день в селекте
+        // Изменяем на нужный номер (0 для понедельника, 6 для воскресенья)
+        daySelect.selectedIndex = (currentDay + 6) % 7; // Приводим к нужному индексу
+    </script>
+
+</body>
+</html>

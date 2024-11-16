@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        #elem {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="elem">Нажми на меня!</button>
+
+    <script>tasks_400-450/task_416
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', func);
+        elem.addEventListener('dblclick', func);
+
+        function func(event) {
+            if (event.type === 'click') {
+                elem.style.backgroundColor = 'green'; // Цвет при клике
+            } else if (event.type === 'dblclick') {
+                elem.style.backgroundColor = 'red'; // Цвет при двойном клике
+            }
+        }
+    </script>
+
+</body>
+</html>

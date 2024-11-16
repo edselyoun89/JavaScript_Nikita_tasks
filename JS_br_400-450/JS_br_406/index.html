@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача: Выпадающий список дней недели -->
+    <h3>Выбор дня недели</h3>
+    <select id="weekdaySelect">
+        <option value="1">Понедельник</option>
+        <option value="2">Вторник</option>
+        <option value="3">Среда</option>
+        <option value="4">Четверг</option>
+        <option value="5">Пятница</option>
+        <option value="6">Суббота</option>
+        <option value="7">Воскресенье</option>
+    </select>
+    <p id="dayMessage"></p>
+
+    <script>
+        let select = document.querySelector('#weekdaySelect');
+        let dayMessage = document.querySelector('#dayMessage');
+
+        select.addEventListener('change', function() {
+            let dayValue = parseInt(this.value);
+            if (dayValue === 6 || dayValue === 7) {
+                dayMessage.textContent = 'Выбран выходной день';
+            } else {
+                dayMessage.textContent = 'Выбран рабочий день';
+            }
+        });
+    </script>
+
+</body>
+</html>

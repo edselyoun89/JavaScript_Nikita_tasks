@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задача 1 -->
+    <h3>Задача 1: Текст из textarea в div по потере фокуса</h3>
+    <textarea></textarea>
+    <div></div>
+
+    <!-- Задача 2 -->
+    <h3>Задача 2: Запись значения в div по клику на кнопку</h3>
+    <input type="checkbox" id="checkbox2">
+    <div></div>
+    <button id="button2">button</button>
+
+    <!-- Задача 3 -->
+    <h3>Задача 3: Вывод в консоль в зависимости от состояния checkbox</h3>
+    <input type="checkbox" id="checkbox3">
+    <button id="button3">button</button>
+
+    <script>
+        // Задача 1
+        let textarea = document.querySelector('textarea');
+        let div1 = document.querySelectorAll('div')[0]; // Первый div для задачи 1
+
+        textarea.addEventListener('blur', function() {
+            div1.textContent = textarea.value;
+        });
+
+        // Задача 2
+        let checkbox2 = document.querySelector('#checkbox2');
+        let button2 = document.querySelector('#button2');
+        let div2 = document.querySelectorAll('div')[1]; // Второй div для задачи 2
+
+        button2.addEventListener('click', function() {
+            if (checkbox2.checked) {
+                div2.textContent = '111';
+            } else {
+                div2.textContent = '222';
+            }
+        });
+
+        // Задача 3
+        let checkbox3 = document.querySelector('#checkbox3');
+        let button3 = document.querySelector('#button3');
+
+        button3.addEventListener('click', function() {
+            if (checkbox3.checked) {
+                console.log('+++');
+            } else {
+                console.log('---');
+            }
+        });
+    </script>
+
+</body>
+</html>

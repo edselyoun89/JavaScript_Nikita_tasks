@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Два инпута -->
+    <input id="input1" type="text" maxlength="2" placeholder="Введите 2 символа">
+    <input id="input2" type="text" maxlength="2" placeholder="Введите 2 символа">
+
+    <script>
+        let input1 = document.querySelector('#input1');
+        let input2 = document.querySelector('#input2');
+
+        // Событие ввода для первого инпута
+        input1.addEventListener('input', function() {
+            if (this.value.length === 2) {
+                input2.focus(); // Переход фокуса ко второму инпуту
+            }
+        });
+
+        // Событие ввода для второго инпута
+        input2.addEventListener('input', function() {
+            if (this.value.length === 2) {
+                input2.blur(); // Убираем фокус, когда введено 2 символа
+            }
+        });
+    </script>
+
+</body>
+</html>

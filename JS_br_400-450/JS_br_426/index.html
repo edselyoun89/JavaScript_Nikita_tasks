@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        #block:not(.active) {
+            display: none;
+        }
+        #parent {
+            padding: 20px;
+            border: 1px solid blue;
+            width: 200px;
+            text-align: center;
+        }
+        button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="parent">
+        <button>click me</button>
+        <div id="block">text</div>
+    </div>
+
+    <script>
+        let parent = document.querySelector('#parent');
+        let button = document.querySelector('button');
+        let block  = document.querySelector('#block');
+
+        button.addEventListener('click', function(event) {
+            block.classList.add('active');
+            event.stopPropagation(); // Остановка всплытия события
+        });
+
+        parent.addEventListener('click', function() {
+            block.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>

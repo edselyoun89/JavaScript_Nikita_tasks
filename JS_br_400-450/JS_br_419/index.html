@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            padding: 30px;
+            border: 1px solid red;
+        }
+        li {
+            list-style-type: none;
+            margin-bottom: 10px;
+            padding: 5px;
+            border: 1px dashed black;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="elem">Нажми меня с Alt</button>
+
+    <ul id="list">
+        <li>Первый элемент</li>
+        <li>Второй элемент</li>
+        <li>Третий элемент</li>
+        <li>Четвертый элемент</li>
+        <li>Пятый элемент</li>
+    </ul>
+
+    <script>
+        let button = document.querySelector('#elem');
+        let listItems = document.querySelectorAll('#list li');
+
+        // Задача 1: Изменение цвета кнопки по нажатию Alt
+        button.addEventListener('click', function(event) {
+            if (event.altKey) {
+                button.style.backgroundColor = 'red';
+            }
+        });
+
+        // Задача 2: Изменение текста пунктов списка в зависимости от нажатых клавиш
+        listItems.forEach(item => {
+            item.addEventListener('click', function(event) {
+                if (event.ctrlKey) {
+                    this.textContent += ' 1';
+                } else if (event.shiftKey) {
+                    this.textContent += ' 2';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

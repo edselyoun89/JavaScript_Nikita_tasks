@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        "use strict";
+
+        // Получаем ссылку на элемент input
+        let elem = document.querySelector('#elem');
+
+        // Навешиваем обработчик события blur на input
+        elem.addEventListener('blur', parent);
+
+        // Внешняя функция, вызываемая при потере фокуса
+        function parent() {
+            // Выводим значение инпута, так как this указывает на элемент input
+            console.log(this.value); // (выведет 'text')
+            
+            // Внутренняя функция
+            function child() {
+                // Выводим значение инпута, но this здесь будет undefined
+                console.log(this.value); // (выведет undefined)
+            }
+            // Вызываем внутреннюю функцию
+            child();
+        }
+    </script>
+</head>
+<body>
+    <!-- Инпут, на который навешан обработчик события -->
+    <input id="elem" value="text" placeholder="Введите текст и потеряйте фокус">
+</body>
+</html>

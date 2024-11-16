@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Задание 1
+            let elem = document.querySelector('#elem');
+
+            elem.addEventListener('click', function() {
+                setInterval(() => {
+                    this.value = Number(this.value) + 1; // Используем стрелочную функцию
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" id="elem" value="1">
+</body>
+</html>
