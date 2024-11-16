@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <table id="table"></table>
+
+    <script>
+        let table = document.querySelector('#table');
+
+        // Задача 1: Создание таблицы 5 на 5
+        for (let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        // Задача 2: Модификация для 10 на 5
+        table.innerHTML = '';
+        for (let i = 0; i < 10; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        // Задача 3: Добавление 'x' в каждую ячейку
+        table.innerHTML = '';
+        for (let i = 0; i < 10; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                td.textContent = 'x';
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        // Задача 4: Генератор таблиц
+        function generateTable(rows, cols) {
+            table.innerHTML = '';
+            for (let i = 0; i < rows; i++) {
+                let tr = document.createElement('tr');
+                for (let j = 0; j < cols; j++) {
+                    let td = document.createElement('td');
+                    td.textContent = 'x';
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+        }
+
+        generateTable(10, 5);
+    </script>
+</body>
+</html>

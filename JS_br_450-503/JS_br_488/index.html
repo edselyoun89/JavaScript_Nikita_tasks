@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p class="elem">Текст</p>
+    <p class="elem">Текст</p>
+    <p class="elem">Текст</p>
+    <p class="elem">Текст</p>
+    <p class="elem">Текст</p>
+
+    <script>
+        function forEach(selector, func) {
+            let elems = document.querySelectorAll(selector);
+            for (let i = 0; i < elems.length; i++) {
+                func(elems[i], i);
+            }
+        }
+
+        forEach('.elem', function(elem, index) {
+            elem.textContent = index + ' ' + elem.textContent;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="elem"></div>
+
+    <script>
+        // #1
+        function createTableByArr(arr) {
+            let table = document.createElement('table');
+            
+            for (let row of arr) {
+                let tr = document.createElement('tr');
+                for (let cell of row) {
+                    let td = document.createElement('td');
+                    td.textContent = cell; // Устанавливаем текст ячейки
+                    tr.appendChild(td);
+                }
+                table.appendChild(tr);
+            }
+            
+            return table; // Возвращаем созданную таблицу
+        }
+
+        let div = document.querySelector('#elem');
+        let arr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
+        let table = createTableByArr(arr); // Создаем таблицу из массива
+        div.appendChild(table); // Вставляем таблицу в div
+    </script>
+
+</body>
+</html>

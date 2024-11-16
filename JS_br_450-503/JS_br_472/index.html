@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+    <ul id="parent">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <input type="submit" id="button" value="Добавить элемент">
+
+    <script>
+        // #1
+        document.getElementById('button').addEventListener('click', function() {
+            let parent = document.getElementById('parent');
+            let li = document.createElement('li');
+            li.textContent = parent.children.length + 1;
+
+            li.addEventListener('click', function() {
+                this.remove();
+            });
+
+            parent.appendChild(li);
+        });
+
+        // Добавление события для уже существующих элементов
+        let existingItems = document.querySelectorAll('#parent li');
+        existingItems.forEach(item => {
+            item.addEventListener('click', function() {
+                this.remove();
+            });
+        });
+    </script>
+</body>
+</html>

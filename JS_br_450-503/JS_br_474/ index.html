@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+    <div id="parent">
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+    </div>
+
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <table id="table">
+        <tr>
+            <td>Row 1</td>
+            <td>Data 1</td>
+        </tr>
+        <tr>
+            <td>Row 2</td>
+            <td>Data 2</td>
+        </tr>
+    </table>
+
+    <script>
+        // #1
+        let elems = document.querySelectorAll('#parent p');
+
+        for (let elem of elems) {
+            let remove = document.createElement('a');
+            remove.href = '';
+            remove.textContent = 'remove';
+            elem.appendChild(remove);
+            
+            remove.addEventListener('click', function(event) {
+                elem.remove();
+                event.preventDefault();
+            });
+        }
+
+        // #2
+        let listItems = document.querySelectorAll('#list li');
+
+        for (let item of listItems) {
+            let remove = document.createElement('a');
+            remove.href = '';
+            remove.textContent = ' remove';
+            item.appendChild(remove);
+            
+            remove.addEventListener('click', function(event) {
+                item.remove();
+                event.preventDefault();
+            });
+        }
+
+        // #3
+        let tableRows = document.querySelectorAll('#table tr');
+
+        for (let row of tableRows) {
+            let remove = document.createElement('a');
+            remove.href = '';
+            remove.textContent = ' remove';
+            let td = document.createElement('td');
+            td.appendChild(remove);
+            row.appendChild(td);
+            
+            remove.addEventListener('click', function(event) {
+                row.remove();
+                event.preventDefault();
+            });
+        }
+    </script>
+</body>
+</html>

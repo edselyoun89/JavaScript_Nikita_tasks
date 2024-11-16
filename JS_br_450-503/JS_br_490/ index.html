@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <ul id="myList"></ul>
+
+    <script>
+        // #1
+        function setText(elems, text) {
+            for (let elem of elems) {
+                elem.textContent = text;
+            }
+        }
+
+        let elems = document.querySelectorAll('.elem');
+        setText(elems, 'text');
+
+        // #2
+        function appendText(elems, text) {
+            for (let elem of elems) {
+                elem.textContent += text;
+            }
+        }
+
+        appendText(elems, ' - добавлено');
+
+        // #3
+        function appendElem(ul, text) {
+            let li = document.createElement('li');
+            li.textContent = text;
+            ul.appendChild(li);
+        }
+
+        let array = ['Item 1', 'Item 2', 'Item 3'];
+        let ul = document.getElementById('myList');
+
+        for (let item of array) {
+            appendElem(ul, item);
+        }
+    </script>
+
+</body>
+</html>

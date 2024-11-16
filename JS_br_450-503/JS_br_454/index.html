@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <ol id="elem"></ol>
+    <button id="button">click me</button>
+
+    <script>
+        // #1
+        let olElem = document.querySelector('#elem');
+        let button = document.querySelector('#button');
+
+        button.addEventListener('click', function() {
+            let li = document.createElement('li');
+            li.textContent = 'item';
+
+            li.addEventListener('click', function() {
+                this.textContent += '!';
+            });
+
+            olElem.appendChild(li);
+        });
+    </script>
+</body>
+</html>

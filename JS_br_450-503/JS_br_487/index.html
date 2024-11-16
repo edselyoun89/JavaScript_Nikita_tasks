@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p class="elem">1</p>
+    <p class="elem">2</p>
+    <p class="elem">3</p>
+    <p class="elem">4</p>
+    <p class="elem">5</p>
+
+    <script>
+        function forEach(selector, func) {
+            let elems = document.querySelectorAll(selector);
+            for (let elem of elems) {
+                func(elem);
+            }
+        }
+
+        forEach('.elem', function(elem) {
+            elem.textContent += '!';
+        });
+    </script>
+
+</body>
+</html>

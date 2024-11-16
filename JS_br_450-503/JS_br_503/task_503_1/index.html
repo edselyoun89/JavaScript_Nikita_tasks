@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <script>
+        // #1
+        (function() {
+            function avg1(arr) {
+                return sum(arr, 1) / arr.length;
+            }
+
+            function avg2(arr) {
+                return sum(arr, 2) / arr.length;
+            }
+
+            function avg3(arr) {
+                return sum(arr, 3) / arr.length;
+            }
+
+            // вспомогательная функция
+            function sum(arr, pow) {
+                let res = 0;
+                
+                for (let elem of arr) {
+                    res += elem ** pow;
+                }
+                
+                return res;
+            }
+            
+            // Экспортируем объект с функциями
+            window.avgLibrary = { avg1, avg2, avg3 };
+        })();
+
+        console.log("Результаты для задания #1:");
+        console.log("avg1([1, 2, 3]):", avgLibrary.avg1([1, 2, 3])); // 2
+        console.log("avg2([1, 2, 3]):", avgLibrary.avg2([1, 2, 3])); // 2.6666666666666665
+        console.log("avg3([1, 2, 3]):", avgLibrary.avg3([1, 2, 3])); // 3
+    </script>
+
+</body>
+</html>

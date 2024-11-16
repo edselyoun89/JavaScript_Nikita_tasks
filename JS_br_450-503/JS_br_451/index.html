@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <input type="submit" id="elem">
+    <p id="message"></p>
+
+    <script>
+        let elem = document.querySelector('#elem');
+        elem.addEventListener('click', function() {
+            setTimeout(function() {
+                alert('!');
+            }, 3000);
+        });
+
+        let message = document.querySelector('#message');
+        setTimeout(function() {
+            message.textContent = 'Сообщение появилось через 10 секунд!';
+        }, 10000);
+    </script>
+</body>
+</html>

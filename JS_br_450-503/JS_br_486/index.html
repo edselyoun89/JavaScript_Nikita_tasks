@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <p class="elem"></p>
+
+    <script>
+        function setText(selector, text) {
+            let elems = document.querySelectorAll(selector);
+            for (let elem of elems) {
+                elem.textContent = text;
+            }
+        }
+
+        function appendText(selector, text) {
+            let elems = document.querySelectorAll(selector);
+            for (let elem of elems) {
+                elem.textContent += text;
+            }
+        }
+
+        setText('.elem', 'text');
+        appendText('.elem', ' - добавлено');
+    </script>
+
+</body>
+</html>

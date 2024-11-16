@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        #parent p {
+            margin: 10px 0;
+        }
+        .edit-input {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent">
+        <p><span>text1</span></p>
+        <p><span>text2</span></p>
+        <p><span>text3</span></p>
+    </div>
+
+    <script>
+        const parent = document.getElementById('parent');
+
+        // Task #1
+        Array.from(parent.getElementsByTagName('p')).forEach(p => {
+            const removeLink = document.createElement('a');
+            removeLink.href = '#';
+            removeLink.textContent = 'remove';
+            removeLink.onclick = function() {
+                p.remove();
+                return false;
+            };
+            p.appendChild(removeLink);
+        });
+
+        // Task #2
+        Array.from(parent.getElementsByTagName('p')).forEach(p => {
+            const text = p.textContent;
+            p.innerHTML = ''; 
+            const span = document.createElement('span');
+            span.textContent = text;
+
+            const editInput = document.createElement('input');
+            editInput.classList.add('edit-input');
+            editInput.value = text;
+
+            span.onclick = function() {
+                span.style.display = 'none';
+                editInput.style.display = 'inline';
+                editInput.focus();
+            };
+
+            editInput.onblur = function() {
+                span.textContent = editInput.value;
+                span.style.display = 'inline';
+                editInput.style.display = 'none';
+            };
+
+            p.appendChild(span);
+            p.appendChild(editInput);
+
+            const removeLink = document.createElement('a');
+            removeLink.href = '#';
+            removeLink.textContent = 'remove';
+            removeLink.onclick = function() {
+                p.remove();
+                return false;
+            };
+            p.appendChild(removeLink);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <p class="elem"></p>
+    <p id="elem1"></p>
+    <p id="elem2"></p>
+
+    <script>
+        // Задание #1
+        function setText(selector, text) {
+            let elems = document.querySelectorAll(selector);
+            for (let elem of elems) {
+                elem.textContent = text;
+            }
+        }
+
+        function appendText(selector, text) {
+            let elems = document.querySelectorAll(selector);
+            for (let elem of elems) {
+                elem.textContent += text;
+            }
+        }
+
+        setText('.elem', 'text');
+        appendText('.elem', ' - добавлено');
+
+        // Задание #2
+        function setTextById(selector, text) {
+            let elem = document.querySelector(selector);
+            if (elem) {
+                elem.textContent = text;
+            }
+        }
+
+        function setAttr(selector, attrName, attrValue) {
+            let elem = document.querySelector(selector);
+            if (elem) {
+                elem.setAttribute(attrName, attrValue);
+            }
+        }
+
+        setTextById('#elem1', 'text1');
+        setTextById('#elem2', 'text2');
+        setAttr('#elem1', 'class', 'highlight');
+        setAttr('#elem2', 'data-info', 'sample data');
+    </script>
+
+</body>
+</html>

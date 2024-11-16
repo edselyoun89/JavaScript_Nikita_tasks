@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p id="elem1"></p>
+    <p id="elem2"></p>
+    <input id="input1" type="text" />
+
+    <script>
+        // #1
+        function setText(elem, text) {
+            elem.textContent = text;
+        }
+
+        // #2
+        function appendText(elem, text) {
+            elem.textContent += text;
+        }
+
+        // #3
+        function setValue(input, text) {
+            input.value = text;
+        }
+
+        let elem1 = document.getElementById('elem1');
+        setText(elem1, 'text1');
+
+        let elem2 = document.getElementById('elem2');
+        setText(elem2, 'text2');
+
+        let paragraphs = document.querySelectorAll('p');
+        paragraphs.forEach(function(elem) {
+            appendText(elem, '!');
+        });
+
+        let input1 = document.getElementById('input1');
+        setValue(input1, 'Some value');
+    </script>
+
+</body>
+</html>

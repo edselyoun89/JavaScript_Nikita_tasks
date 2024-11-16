@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <script>
+        // #2
+        (function() {
+            function map(arr, callback) {
+                const result = [];
+                for (let i = 0; i < arr.length; i++) {
+                    result.push(callback(arr[i], i, arr));
+                }
+                return result;
+            }
+
+            function filter(arr, callback) {
+                const result = [];
+                for (let i = 0; i < arr.length; i++) {
+                    if (callback(arr[i], i, arr)) {
+                        result.push(arr[i]);
+                    }
+                }
+                return result;
+            }
+
+            function reduce(arr, callback, initialValue) {
+                let accumulator = initialValue === undefined ? arr[0] : initialValue;
+                for (let i = initialValue === undefined ? 1 : 0; i < arr.length; i++) {
+                    accumulator = callback(accumulator, arr[i], i, arr);
+                }
+                return accumulator;
+            }
+
+            function find(arr, callback) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (callback(arr[i], i, arr)) {
+                        return arr[i];
+                    }
+                }
+                return undefined;
+            }
+
+            function every(arr, callback) {
+                for (let i = 0; i < arr.length; i++) {
+                    if (!callback(arr[i], i, arr)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+
+            // Экспортируем объект с функциями
+            window.underscoreClone = { map, filter, reduce, find, every };
+        })();
+
+        console.log("Результаты для задания #2:");
+        console.log("map([1, 2, 3], x => x * 2):", underscoreClone.map([1, 2, 3], x => x * 2)); // [2, 4, 6]
+        console.log("filter([1, 2, 3, 4], x => x % 2 === 0):", underscoreClone.filter([1, 2, 3, 4], x => x % 2 === 0)); // [2, 4]
+        console.log("reduce([1, 2, 3], (acc, curr) => acc + curr, 0):", underscoreClone.reduce([1, 2, 3], (acc, curr) => acc + curr, 0)); // 6
+        console.log("find([1, 2, 3, 4], x => x > 2):", underscoreClone.find([1, 2, 3, 4], x => x > 2)); // 3
+        console.log("every([1, 2, 3], x => x > 0):", underscoreClone.every([1, 2, 3], x => x > 0)); // true
+    </script>
+
+</body>
+</html>

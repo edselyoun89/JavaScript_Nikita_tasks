@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <p id="elem">text</p>
+    <input type="submit" id="toggle" value="show">
+
+    <script>
+        let elem = document.querySelector('#elem');
+        let toggle = document.querySelector('#toggle');
+
+        toggle.addEventListener('click', function() {
+            if (elem.classList.contains('hidden')) {
+                elem.classList.remove('hidden');
+                toggle.value = 'hide';
+            } else {
+                elem.classList.add('hidden');
+                toggle.value = 'show';
+            }
+        });
+    </script>
+</body>
+</html>

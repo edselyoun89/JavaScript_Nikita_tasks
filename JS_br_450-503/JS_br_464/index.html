@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="parent"></div>
+
+    <script>
+        let parent = document.querySelector('#parent');
+        let arr = [1, 2, 3, 4, 5];
+
+        for (let elem of arr) {
+            let p = document.createElement('p');
+            p.textContent = elem;
+
+            // Добавляем обработчик клика для инкремента значения
+            p.addEventListener('click', function() {
+                p.textContent = parseInt(p.textContent) + 1; // Увеличиваем значение на 1
+            });
+
+            parent.appendChild(p);
+        }
+    </script>
+</body>
+</html>

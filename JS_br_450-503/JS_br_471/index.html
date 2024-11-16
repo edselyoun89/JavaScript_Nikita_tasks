@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <tr>
+            <td>1</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>4</td>
+        </tr>
+    </table>
+    <button id="double">Увеличить в два раза</button>
+    <script>
+        // #1
+        document.getElementById('double').addEventListener('click', function() {
+            let tds = document.querySelectorAll('#table td');
+
+            for (let td of tds) {
+                td.textContent = Number(td.textContent) * 2;
+            }
+        });
+    </script>
+</body>
+</html>

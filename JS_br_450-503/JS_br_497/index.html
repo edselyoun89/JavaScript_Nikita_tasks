@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <input type="number" id="input1" placeholder="Введите число 1">
+    <input type="number" id="input2" placeholder="Введите число 2">
+    <input type="number" id="input3" placeholder="Введите число 3">
+    <button id="btn">Сложить</button>
+
+    <script>
+        // #1
+        (function(inputSelector1, inputSelector2, inputSelector3, buttonSelector) {
+            let input1 = document.querySelector(inputSelector1);
+            let input2 = document.querySelector(inputSelector2);
+            let input3 = document.querySelector(inputSelector3);
+            let button = document.querySelector(buttonSelector);
+
+            button.addEventListener('click', function() {
+                let sum = Number(input1.value) + Number(input2.value) + Number(input3.value);
+                console.log(sum); // Выводим сумму в консоль
+            });
+        })('#input1', '#input2', '#input3', '#btn');
+    </script>
+
+</body>
+</html>

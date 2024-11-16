@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <ul id="parent">
+        <li>text</li>
+        <li>text</li>
+        <li id="elem">text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <script>
+        // #1
+        let parent = document.querySelector('#parent');
+        let elem = document.querySelector('#elem');
+
+        let newLi = document.createElement('li');
+        newLi.textContent = 'new';
+
+        parent.insertBefore(newLi, elem); // Вставка перед элементом #elem
+
+        // #2
+        newLi.addEventListener('click', function() {
+            this.textContent += '!'; // Добавление '!' в конец текста по клику
+        });
+    </script>
+</body>
+</html>

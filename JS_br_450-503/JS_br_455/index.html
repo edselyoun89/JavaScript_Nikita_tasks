@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <ul id="list"></ul>
+
+    <script>
+        // #1
+        let ulElem = document.querySelector('#list');
+
+        for (let i = 1; i <= 10; i++) {
+            let li = document.createElement('li');
+            li.textContent = i;
+            ulElem.appendChild(li);
+        }
+    </script>
+</body>
+</html>

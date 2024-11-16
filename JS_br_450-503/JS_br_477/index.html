@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<!-- #1 -->
+<div id="parent1">
+    <p id="elem1">text</p>
+    <input id="input1">
+</div>
+
+<script>
+let elem1 = document.querySelector('#elem1');
+let input1 = document.querySelector('#input1');
+
+input1.value = elem1.textContent;
+
+input1.addEventListener('input', function() {
+    elem1.textContent = this.value;
+});
+</script>
+
+<!-- #2 -->
+<div id="parent2">
+    <p id="elem2">text</p>
+</div>
+
+<script>
+let elem2 = document.querySelector('#elem2');
+
+elem2.addEventListener('click', function func() {
+    let input2 = document.createElement('input');
+    input2.value = elem2.textContent;
+    elem2.textContent = '';
+    elem2.appendChild(input2);
+    
+    input2.addEventListener('blur', function() {
+        elem2.textContent = this.value;
+        elem2.removeEventListener('click', func);
+    });
+    
+    elem2.removeEventListener('click', func);
+});
+</script>
+
+<!-- #3 -->
+<div id="parent3">
+    <p>text1</p>
+    <p>text2</p>
+    <p>text3</p>
+</div>
+
+<script>
+let elems3 = document.querySelectorAll('#parent3 p');
+
+for (let elem3 of elems3) {
+    elem3.addEventListener('click', function func() {
+        let input3 = document.createElement('input');
+        input3.value = elem3.textContent;
+        elem3.textContent = '';
+        elem3.appendChild(input3);
+        
+        input3.addEventListener('blur', function() {
+            elem3.textContent = this.value;
+            elem3.addEventListener('click', func);
+        });
+        
+        elem3.removeEventListener('click', func);
+    });
+}
+</script>
+
+<!-- #4 -->
+<ul id="list">
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+</ul>
+
+<script>
+let items = document.querySelectorAll('#list li');
+
+for (let item of items) {
+    item.addEventListener('click', function func() {
+        let input4 = document.createElement('input');
+        input4.value = item.textContent;
+        item.textContent = '';
+        item.appendChild(input4);
+        
+        input4.addEventListener('blur', function() {
+            item.textContent = this.value;
+            item.addEventListener('click', func);
+        });
+        
+        item.removeEventListener('click', func);
+    });
+}
+</script>
+
+<!-- #5 -->
+<table id="table">
+    <tr>
+        <td>Cell 1</td>
+        <td>Cell 2</td>
+    </tr>
+    <tr>
+        <td>Cell 3</td>
+        <td>Cell 4</td>
+    </tr>
+</table>
+
+<script>
+let cells = document.querySelectorAll('#table td');
+
+for (let cell of cells) {
+    cell.addEventListener('click', function func() {
+        let input5 = document.createElement('input');
+        input5.value = cell.textContent;
+        cell.textContent = '';
+        cell.appendChild(input5);
+        
+        input5.addEventListener('blur', function() {
+            cell.textContent = this.value;
+            cell.addEventListener('click', func);
+        });
+        
+        cell.removeEventListener('click', func);
+    });
+}
+</script>
+
+</body>
+</html>

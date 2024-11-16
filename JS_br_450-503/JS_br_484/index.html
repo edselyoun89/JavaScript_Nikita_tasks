@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Практика на изменение элементов на JavaScript</title>
+    <style>
+        .active {
+            background: red;
+        }
+        .delete-link {
+            margin-left: 10px;
+            color: red;
+            cursor: pointer;
+        }
+        .strikethrough {
+            text-decoration: line-through;
+        }
+        table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Задание 1: Список работников (ul)</h2>
+<ul id="employee-list"></ul>
+<input type="text" id="new-item" placeholder="Добавить работника">
+<button id="add-button">Добавить</button>
+
+<h2>Задание 6: Таблица работников (table)</h2>
+<table id="employee-table" border="1">
+    <thead>
+        <tr>
+            <th>Имя</th>
+            <th>Возраст</th>
+            <th>Зарплата</th>
+            <th>Удалить</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<input type="text" id="name" placeholder="Имя">
+<input type="number" id="age" placeholder="Возраст">
+<input type="number" id="salary" placeholder="Зарплата">
+<button id="add-employee">Добавить работника</button>
+
+<script>
+    let employees = [
+        { name: 'employee1', age: 30, salary: 400 },
+        { name: 'employee2', age: 31, salary: 500 },
+        { name: 'employee3', age: 32, salary: 600 },
+    ];
+
+    // Задание 1-5: Список работников
+    function renderEmployeeList() {
+        const ul = document.getElementById('employee-list');
+        ul.innerHTML = '';
+        employees.forEach((employee, index) => {
+            const li = document.createElement('li');
+            li.textContent = employee.name;
+
+            // Редактирование имени
+            li.addEventListener('click', function () {
+                const input = document.createElement('input');
+                input.value = this.textContent;
+                this.textContent = '';
+                this.appendChild(input);
+
+                input.addEventListener('blur', () => {
+                    employee.name = input.value;
+                    renderEmployeeList();
+                });
+                input.focus();
+            });
+
+            // Удаление элемента
+            const deleteLink = document.createElement('span');
+            deleteLink.textContent = 'удалить';
+            deleteLink.classList.add('delete-link');
+            deleteLink.addEventListener('click', (event) => {
+                event.stopPropagation();
+                employees.splice(index, 1);
+                renderEmployeeList();
+            });
+
+            // Перечеркнуть текст
+            const strikethroughLink = document.createElement('span');
+            strikethroughLink.textContent = 'перечеркнуть';
+            strikethroughLink.classList.add('delete-link');
+            strikethroughLink.addEventListener('click', (event) => {
+                event.stopPropagation();
+                li.classList.toggle('strikethrough');
+            });
+
+            li.appendChild(deleteLink);
+            li.appendChild(strikethroughLink);
+            ul.appendChild(li);
+        });
+    }
+
+    document.getElementById('add-button').addEventListener('click', () => {
+        const newItem = document.getElementById('new-item').value;
+        if (newItem) {
+            employees.push({ name: newItem });
+            document.getElementById('new-item').value = '';
+            renderEmployeeList();
+        }
+    });
+
+    renderEmployeeList();
+
+    // Задание 6-9: Таблица работников
+    function renderEmployeeTable() {
+        const tbody = document.getElementById('employee-table').querySelector('tbody');
+        tbody.innerHTML = '';
+
+        employees.forEach((employee, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${employee.name}</td>
+                <td>${employee.age}</td>
+                <td>${employee.salary}</td>
+                <td><button class="delete-row">Удалить</button></td>
+            `;
+            tbody.appendChild(tr);
+
+            // Удаление строки
+            const deleteButton = tr.querySelector('.delete-row');
+            deleteButton.addEventListener('click', () => {
+                employees.splice(index, 1);
+                renderEmployeeTable();
+                renderEmployeeList();
+            });
+        });
+    }
+
+    document.getElementById('add-employee').addEventListener('click', () => {
+        const name = document.getElementById('name').value;
+        const age = document.getElementById('age').value;
+        const salary = document.getElementById('salary').value;
+
+        if (name && age && salary) {
+            employees.push({ name, age, salary });
+            document.getElementById('name').value = '';
+            document.getElementById('age').value = '';
+            document.getElementById('salary').value = '';
+            renderEmployeeTable();
+            renderEmployeeList();
+        }
+    });
+
+    renderEmployeeTable();
+
+    // Задание 10-13: Список работников с редактированием
+    function renderFullEmployeeList() {
+        const ul = document.getElementById('employee-list');
+        ul.innerHTML = '';
+        employees.forEach((employee, index) => {
+            const li = document.createElement('li');
+            li.textContent = `Имя: ${employee.name}, Возраст: ${employee.age}, Зарплата: ${employee.salary}`;
+
+            // Редактирование данных работника
+            li.addEventListener('click', function () {
+                const inputName = document.createElement('input');
+                inputName.value = employee.name;
+                const inputAge = document.createElement('input');
+                inputAge.value = employee.age;
+                const inputSalary = document.createElement('input');
+                inputSalary.value = employee.salary;
+
+                this.textContent = '';
+                this.appendChild(inputName);
+                this.appendChild(inputAge);
+                this.appendChild(inputSalary);
+
+                inputName.addEventListener('blur', () => {
+                    employee.name = inputName.value;
+                    employee.age = inputAge.value;
+                    employee.salary = inputSalary.value;
+                    renderFullEmployeeList();
+                });
+
+                inputAge.addEventListener('blur', () => {
+                    employee.age = inputAge.value;
+                    renderFullEmployeeList();
+                });
+
+                inputSalary.addEventListener('blur', () => {
+                    employee.salary = inputSalary.value;
+                    renderFullEmployeeList();
+                });
+
+                inputName.focus();
+            });
+
+            // Удаление элемента
+            const deleteLink = document.createElement('span');
+            deleteLink.textContent = 'удалить';
+            deleteLink.classList.add('delete-link');
+            deleteLink.addEventListener('click', (event) => {
+                event.stopPropagation();
+                employees.splice(index, 1);
+                renderFullEmployeeList();
+            });
+
+            li.appendChild(deleteLink);
+            ul.appendChild(li);
+        });
+    }
+
+    renderFullEmployeeList();
+
+</script>
+
+</body>
+</html>
+
+<!--
+Описание кода и заданий
+Задание 1: Выводит список работников из массива employees в виде списка ul.
+Задание 2: При клике на элемент списка можно редактировать его имя.
+Задание 3: Добавляет возможность добавления нового работника в список.
+Задание 4: Добавляет возможность удаления работников из списка.
+Задание 5: Добавляет возможность перечеркнуть имя работника.
+Задание 6: Выводит работников из массива в виде таблицы.
+Задание 7: Добавляет возможность редактирования ячеек таблицы.
+Задание 8: Добавляет возможность удаления строки из таблицы.
+Задание 9: Позволяет добавлять новых работников в таблицу через форму.
+Задание 10: Отображает работников в формате li с их именами, возрастом и зарплатой.
+Задание 11: Позволяет редактировать имя, возраст и зарплату при клике на соответствующие поля.
+Задание 12: Добавляет возможность удаления работника из списка.
+Задание 13: Под списком добавлена форма для добавления нового работника.
+-->

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="elem" style="border: 1px solid red;">
+        <p>text</p>
+        <p>text</p>
+        <p>text</p>
+    </div>
+
+    <script>
+        // #1
+        let elem = document.querySelector('#elem');
+        let paragraphBefore = document.createElement('p');
+        paragraphBefore.textContent = '!!!';
+        elem.insertAdjacentElement('beforebegin', paragraphBefore); // Вставка перед элементом
+
+        // #2
+        let paragraphAfter = document.createElement('p');
+        paragraphAfter.textContent = '!!!';
+        elem.insertAdjacentElement('afterend', paragraphAfter); // Вставка после элемента
+
+        // #3
+        let paragraphStart = document.createElement('p');
+        paragraphStart.textContent = '!!!';
+        elem.insertAdjacentElement('afterbegin', paragraphStart); // Вставка в начало элемента
+
+        // #4
+        let paragraphEnd = document.createElement('p');
+        paragraphEnd.textContent = '!!!';
+        elem.insertAdjacentElement('beforeend', paragraphEnd); // Вставка в конец элемента
+    </script>
+</body>
+</html>

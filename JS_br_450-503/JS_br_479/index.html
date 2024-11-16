@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        .crossed {
+            text-decoration: line-through;
+        }
+        .highlight {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>text1</p>
+        <p>text2</p>
+        <p>text3</p>
+    </div>
+
+    <table border="1">
+        <tr>
+            <th>Столбец 1</th>
+            <th>Столбец 2</th>
+        </tr>
+        <tr>
+            <td>Строка 1</td>
+            <td>Данные 1</td>
+        </tr>
+        <tr>
+            <td>Строка 2</td>
+            <td>Данные 2</td>
+        </tr>
+        <tr>
+            <td>Строка 3</td>
+            <td>Данные 3</td>
+        </tr>
+    </table>
+
+    <script>
+        const paragraphs = document.querySelectorAll('p');
+
+        // Задача #1
+        paragraphs.forEach(p => {
+            const span = document.createElement('span');
+            span.textContent = p.textContent;
+            p.innerHTML = ''; 
+            p.appendChild(span);
+
+            const link = document.createElement('a');
+            link.href = '#';
+            link.textContent = 'link';
+            link.onclick = function() {
+                span.classList.toggle('crossed');
+                return false;
+            };
+            p.appendChild(link);
+        });
+
+        // Задача #2
+        paragraphs.forEach(p => {
+            const span = p.querySelector('span');
+            const link = p.querySelector('a');
+
+            link.onclick = function() {
+                span.classList.toggle('crossed');
+                link.remove();
+                return false;
+            };
+        });
+
+        // Задача #3
+        const tableRows = document.querySelectorAll('table tr');
+        tableRows.forEach((tr, index) => {
+            if (index > 0) { // Пропускаем строку заголовка
+                const link = document.createElement('a');
+                link.href = '#';
+                link.textContent = 'link';
+                link.onclick = function() {
+                    tr.classList.toggle('highlight');
+                    return false;
+                };
+                const cell = document.createElement('td');
+                cell.appendChild(link);
+                tr.appendChild(cell);
+            }
+        });
+
+        // Задача #4
+        tableRows.forEach((tr, index) => {
+            if (index > 0) { // Пропускаем строку заголовка
+                const link = tr.querySelector('a');
+                link.onclick = function() {
+                    tr.classList.toggle('highlight');
+                    return false;
+                };
+            }
+        });
+    </script>
+</body>
+</html>

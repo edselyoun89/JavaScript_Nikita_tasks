@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <script>
+        // #1
+        (function() {
+            let str1 = 'переменная модуля';
+            let str2 = 'переменная модуля';
+            let str3 = 'переменная модуля';
+            
+            function func1() {
+                alert('функция модуля 1');
+            }
+            function func2() {
+                alert('функция модуля 2');
+            }
+            function func3() {
+                alert('функция модуля 3');
+            }
+
+            // Экспортируем переменную и функции
+            window.exportedStr = str1; // Экспортируем переменную
+            window.exportedFunc1 = func1; // Экспортируем первую функцию
+            window.exportedFunc2 = func2; // Экспортируем вторую функцию
+        })();
+
+        // Примеры использования экспортированных переменных и функций
+        console.log(exportedStr); // Выводим экспортированную переменную
+        exportedFunc1(); // Вызываем первую экспортированную функцию
+        exportedFunc2(); // Вызываем вторую экспортированную функцию
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="parent"></div>
+    <p id="output"></p>
+
+    <script>
+        // #1
+        let parent = document.querySelector('#parent');
+        let output = document.querySelector('#output');
+
+        for (let i = 1; i <= 5; i++) {
+            let input = document.createElement('input');
+            
+            input.addEventListener('blur', function() {
+                output.textContent = this.value;
+            });
+
+            parent.appendChild(input);
+        }
+    </script>
+</body>
+</html>

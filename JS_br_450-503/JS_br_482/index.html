@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        .active {
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <table id="table" border="1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <ul>
+        <li>Элемент 1</li>
+        <li>Элемент 2</li>
+        <li>Элемент 3</li>
+    </ul>
+
+    <script>
+        // Задача #1
+        let tds = document.querySelectorAll('#table td');
+
+        for (let td of tds) {
+            td.addEventListener('click', function() {
+                this.classList.add('active');
+            });
+        }
+
+        // Задача #2
+        let listItems = document.querySelectorAll('ul li');
+
+        for (let item of listItems) {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+</html>

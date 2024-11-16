@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <script>
+        // #1
+        let ulElem = document.querySelector('#elem');
+
+        let startLi = document.createElement('li');
+        startLi.textContent = 'start';
+        ulElem.prepend(startLi); // Вставка в начало
+
+        let finishLi = document.createElement('li');
+        finishLi.textContent = 'finish';
+        ulElem.append(finishLi); // Вставка в конец
+    </script>
+</body>
+</html>

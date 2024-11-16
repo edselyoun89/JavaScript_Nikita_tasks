@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="elem">text</p>
+    </div>
+
+    <script>
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function func() {
+            let input = document.createElement('input');
+            input.value = elem.textContent;
+
+            elem.textContent = ''; // убираем текст абзаца
+            elem.appendChild(input); // добавляем инпут
+
+            input.addEventListener('blur', function() {
+                elem.textContent = this.value; // обновляем текст абзаца
+                elem.addEventListener('click', func); // привязываем событие обратно
+            });
+
+            elem.removeEventListener('click', func); // отвязываем событие
+        });
+    </script>
+</body>
+</html>

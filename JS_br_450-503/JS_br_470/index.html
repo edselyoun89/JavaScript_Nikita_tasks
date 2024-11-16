@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        td {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <button id="addRow">Добавить ряд</button>
+    <button id="addColumn">Добавить колонку</button>
+    <script>
+        // #1
+        document.getElementById('addRow').addEventListener('click', function() {
+            let table = document.querySelector('#table');
+            let tr = document.createElement('tr');
+
+            for (let i = 1; i <= 3; i++) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+
+            table.appendChild(tr);
+        });
+
+        // #2
+        document.getElementById('addColumn').addEventListener('click', function() {
+            let trs = document.querySelectorAll('#table tr');
+
+            for (let tr of trs) {
+                let td = document.createElement('td');
+                tr.appendChild(td);
+            }
+        });
+    </script>
+</body>
+</html>

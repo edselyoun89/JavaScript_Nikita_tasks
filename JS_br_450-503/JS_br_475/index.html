@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+    <div id="parent">
+        <p id="elem">text</p>
+    </div>
+
+    <script>
+        // #1
+        let elem = document.querySelector('#elem');
+
+        elem.addEventListener('click', function() {
+            let input = document.createElement('input');
+            input.value = elem.textContent;
+
+            input.addEventListener('input', function() {
+                elem.textContent = this.value;
+            });
+
+            elem.parentElement.appendChild(input);
+        });
+
+        // #2
+        elem.addEventListener('click', function() {
+            let input = document.createElement('input');
+            input.value = elem.textContent;
+
+            input.addEventListener('blur', function() {
+                elem.textContent = this.value;
+                this.remove(); // удалим инпут
+            });
+
+            elem.parentElement.appendChild(input);
+            input.focus(); // фокусируем на инпуте
+        });
+    </script>
+</body>
+</html>

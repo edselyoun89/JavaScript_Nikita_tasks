@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="elem" class="www"></div>
+    <p id="elem2"></p>
+    <div id="elem1">
+        <p id="elem2"></p>
+    </div>
+
+    <script>
+        // #1
+        let elem = document.querySelector('#elem');
+        console.log(elem.classList.contains('www')); // Проверка на класс www
+
+        // #2
+        console.log(elem.tagName === 'P'); // Проверка, является ли элемент абзацем
+
+        // #3
+        let elem1 = document.querySelector('#elem1');
+        let elem2 = document.querySelector('#elem2');
+        console.log(elem1.contains(elem2)); // Проверка, является ли elem2 потомком elem1
+    </script>
+</body>
+</html>

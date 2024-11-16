@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <ul id="elem"></ul>
+
+    <script>
+        let arr = ['Первый', 'Второй', 'Третий', 'Четвертый', 'Пятый'];
+        let elem = document.querySelector('#elem');
+
+        // Задача 1: Вставка элементов массива в ul
+        for (let item of arr) {
+            let li = document.createElement('li');
+            li.textContent = item;
+
+            // Задача 2: Вывод текста элемента при клике
+            li.addEventListener('click', function() {
+                alert(li.textContent);
+                
+                // Задача 3: Добавление '!' при клике
+                if (!li.dataset.clicked) { // Проверяем, был ли элемент уже нажат
+                    li.textContent += '!';
+                    li.dataset.clicked = true; // Устанавливаем флаг
+                }
+            });
+
+            elem.appendChild(li);
+        }
+    </script>
+</body>
+</html>

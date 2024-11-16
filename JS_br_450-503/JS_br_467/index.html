@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+    <table id="table"></table>
+    <script>
+        // #1
+
+        let table = document.querySelector('#table');
+        
+        let k = 1;
+        for (let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                td.textContent = k;
+                k++;
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        // #2
+        table.innerHTML = ''; // Очищаем таблицу
+
+        let m = 2; // Начинаем с четного числа 2
+        for (let i = 0; i < 5; i++) {
+            let tr = document.createElement('tr');
+            for (let j = 0; j < 5; j++) {
+                let td = document.createElement('td');
+                td.textContent = m;
+                m += 2; // Увеличиваем на 2 для следующего четного числа
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+    </script>
+</body>
+</html>
