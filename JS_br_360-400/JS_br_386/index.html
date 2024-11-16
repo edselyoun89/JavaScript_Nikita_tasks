@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <ul>
+        <li>text</li>
+        <li>text</li>
+        <li id="elem">text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <ul>
+        <li>text1</li>
+        <li>text2</li>
+        <li id="elem2">text3</li>
+        <li>text4</li>
+        <li>text5</li>
+    </ul>
+
+    <script>
+        // Задача 1
+        const elem = document.getElementById('elem');
+        const previousSibling = elem.previousElementSibling;
+        previousSibling.textContent += '!'; // Добавляем '!' к соседу сверху
+
+        // Задача 2
+        const nextSibling = elem.nextElementSibling;
+        nextSibling.textContent += '!'; // Добавляем '!' к соседу снизу
+
+        // Задача 3
+        const nextNextSibling = nextSibling.nextElementSibling;
+        nextNextSibling.textContent += '!'; // Добавляем '!' к соседе снизу соседа
+
+        // Задача 4
+        const elem2 = document.getElementById('elem2');
+        const previousSibling2 = elem2.previousElementSibling;
+        const nextSibling2 = elem2.nextElementSibling;
+
+        // Сохраняем текст соседа сверху
+        const tempText = previousSibling2.textContent;
+        // Меняем местами текст
+        previousSibling2.textContent = nextSibling2.textContent;
+        nextSibling2.textContent = tempText;
+    </script>
+
+</body>
+</html>

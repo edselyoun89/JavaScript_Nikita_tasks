@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <header>
+        <div>
+            <p>
+                <span id="elem"></span>
+            </p>
+        </div>
+    </header>
+
+    <header>
+        <div class="www">
+            <p class="www">
+                <span id="elem2"></span>
+            </p>
+        </div>
+    </header>
+
+    <script>
+        // Задача 1
+        const elem = document.getElementById('elem');
+        const closestDiv = elem.closest('div');
+        console.log(closestDiv); // Вывод ближайшего родителя div в консоль
+
+        // Задача 2
+        const elem2 = document.getElementById('elem2');
+        const closestClassDiv = elem2.closest('.www');
+        console.log(closestClassDiv); // Вывод ближайшего родителя с классом www в консоль
+    </script>
+
+</body>
+</html>

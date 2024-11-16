@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <h2>Задача 1: Установка состояния чекбокса</h2>
+    <input type="checkbox" id="checkbox1">
+    <button id="checkBtn">Отметить чекбокс</button>
+    <button id="uncheckBtn">Снять отметку с чекбокса</button>
+
+    <h2>Задача 2: Проверка состояния чекбокса</h2>
+    <input type="checkbox" id="checkbox2">
+    <button id="messageBtn">Вывести сообщение</button>
+    <p id="message"></p>
+
+    <script>
+        // Задача 1
+        let checkbox1 = document.querySelector('#checkbox1');
+        let checkButton = document.querySelector('#checkBtn');
+        let uncheckButton = document.querySelector('#uncheckBtn');
+
+        checkButton.addEventListener('click', function() {
+            checkbox1.checked = true;
+        });
+
+        uncheckButton.addEventListener('click', function() {
+            checkbox1.checked = false;
+        });
+
+        // Задача 2
+        let checkbox2 = document.querySelector('#checkbox2');
+        let messageButton = document.querySelector('#messageBtn');
+        let messageParagraph = document.querySelector('#message');
+
+        messageButton.addEventListener('click', function() {
+            if (checkbox2.checked) {
+                messageParagraph.textContent = 'привет';
+            } else {
+                messageParagraph.textContent = 'пока';
+            }
+        });
+    </script>
+
+</body>
+</html>

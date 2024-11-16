@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <input type="radio" name="elem" value="1" id="radio1">
+    <label for="radio1">Опция 1</label><br>
+
+    <input type="radio" name="elem" value="2" id="radio2">
+    <label for="radio2">Опция 2</label><br>
+
+    <input type="radio" name="elem" value="3" id="radio3">
+    <label for="radio3">Опция 3</label><br>
+
+    <button id="button">Показать выбранное</button>
+    <p id="output"></p>
+
+    <script>
+        let radios = document.querySelectorAll('input[type="radio"]');
+        let button = document.querySelector('#button');
+        let output = document.querySelector('#output');
+
+        button.addEventListener('click', function() {
+            for (let radio of radios) {
+                if (radio.checked) {
+                    output.textContent = radio.value;
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

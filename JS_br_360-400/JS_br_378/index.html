@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="myDiv">Пример дива с текстом.</div>
+    <button id="myButton">Стилизация дива</button>
+
+    <script>
+        const myDiv = document.getElementById('myDiv');
+        const myButton = document.getElementById('myButton');
+
+        myButton.addEventListener('click', function() {
+            // Устанавливаем стили к диву
+            myDiv.style.fontSize = '20px';         // Размер шрифта
+            myDiv.style.borderTop = '2px solid black'; // Верхняя граница
+            myDiv.style.backgroundColor = 'lightgreen'; // Фоновый цвет
+        });
+    </script>
+
+</body>
+</html>

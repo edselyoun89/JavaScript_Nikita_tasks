@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <input id="elem" value="text" class="www zzz">
+    
+    <script>
+        // Получение значения атрибута value
+        const inputElement = document.getElementById('elem');
+        const value = inputElement.getAttribute('value');
+        console.log(value); // Выведет: text
+    
+        // Получение значения атрибута class
+        const classValue = inputElement.getAttribute('class');
+        console.log(classValue); // Выведет: www zzz
+    </script>
+    
+</body>
+</html>

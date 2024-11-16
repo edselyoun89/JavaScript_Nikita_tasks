@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        .red {
+            color: red; /* Красный цвет для текста */
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="elem">
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+        <li>text</li>
+    </ul>
+
+    <script>
+        const elem = document.getElementById('elem');
+
+        // Задача 1: Найдите первого потомка и сделайте его текст красного цвета.
+        const firstChild = elem.firstElementChild;
+        firstChild.classList.add('red');
+
+        // Задача 2: Найдите последнего потомка и сделайте его текст красного цвета.
+        const lastChild = elem.lastElementChild;
+        lastChild.classList.add('red');
+
+        // Задача 3: Найдите всех потомков и добавьте им в конец текст '!'.
+        const children = elem.children;
+        for (let child of children) {
+            child.textContent += '!';
+        }
+    </script>
+
+</body>
+</html>

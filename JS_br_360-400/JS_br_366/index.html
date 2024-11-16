@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <input id="elem">
+    
+    <script>
+        // Установка значения атрибута value
+        const inputElement = document.getElementById('elem');
+        inputElement.setAttribute('value', 'text');
+        console.log(inputElement.getAttribute('value')); // Выведет: text
+    
+        // Установка значения атрибута class
+        inputElement.setAttribute('class', 'valid');
+        console.log(inputElement.getAttribute('class')); // Выведет: valid
+    </script>
+    
+    </body>
+</html>

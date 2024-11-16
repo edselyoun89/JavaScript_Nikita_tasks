@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p>Первый абзац.</p>
+    <p>Второй абзац.</p>
+    <p>Третий абзац.</p>
+    <p>Четвертый абзац.</p>
+    <p>Пятый абзац.</p>
+
+    <script>
+        const paragraphs = document.querySelectorAll('p');
+
+        paragraphs.forEach((paragraph, index) => {
+            paragraph.setAttribute('data-num', index + 1);
+        });
+    </script>
+
+</body>
+</html>

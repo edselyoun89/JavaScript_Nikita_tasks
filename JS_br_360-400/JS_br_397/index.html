@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <h2>Задача 1: Заблокировать инпут по нажатию на кнопку</h2>
+    <input id="input1">
+    <button id="blockBtn">Заблокировать инпут</button>
+
+    <h2>Задача 2: Блокировка и отблокировка инпута</h2>
+    <input id="input2">
+    <button id="blockBtn2">Заблокировать инпут</button>
+    <button id="unblockBtn">Отблокировать инпут</button>
+
+    <h2>Задача 3: Проверка состояния инпута</h2>
+    <input id="input3" disabled>
+    <button id="checkBtn">Проверить состояние инпута</button>
+
+    <script>
+        // Задача 1
+        let input1 = document.querySelector('#input1');
+        let blockButton = document.querySelector('#blockBtn');
+
+        blockButton.addEventListener('click', function() {
+            input1.disabled = true;
+        });
+
+        // Задача 2
+        let input2 = document.querySelector('#input2');
+        let blockButton2 = document.querySelector('#blockBtn2');
+        let unblockButton = document.querySelector('#unblockBtn');
+
+        blockButton2.addEventListener('click', function() {
+            input2.disabled = true;
+        });
+
+        unblockButton.addEventListener('click', function() {
+            input2.disabled = false;
+        });
+
+        // Задача 3
+        let input3 = document.querySelector('#input3');
+        let checkButton = document.querySelector('#checkBtn');
+
+        checkButton.addEventListener('click', function() {
+            if (input3.disabled) {
+                console.log("Инпут заблокирован");
+            } else {
+                console.log("Инпут доступен");
+            }
+        });
+    </script>
+
+</body>
+</html>

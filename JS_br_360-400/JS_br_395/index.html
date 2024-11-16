@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+
+    <script>
+        let elem = document.querySelector('#elem');
+
+        // Задача 1: Вывести тексты всех узлов
+        console.log('Тексты всех узлов:');
+        for (let node of elem.childNodes) {
+            console.log(node.textContent);
+        }
+
+        // Задача 2: Вывести тексты всех комментариев и текстовых узлов
+        console.log('Тексты всех комментариев и текстовых узлов:');
+        for (let node of elem.childNodes) {
+            if (node.nodeType === 3 || node.nodeType === 8) { // 3 - текст, 8 - комментарий
+                console.log(node.data);
+            }
+        }
+
+        // Задача 3: Вывести тексты текстовых узлов и элементов
+        console.log('Тексты текстовых узлов и элементов:');
+        for (let node of elem.childNodes) {
+            if (node.nodeType === 3 || node.nodeType === 1) { // 3 - текст, 1 - элемент
+                console.log(node.textContent);
+            }
+        }
+
+        // Задача 4: Записать тип узла в конец текста каждого узла
+        console.log('Тексты узлов с добавлением их типа:');
+        for (let node of elem.childNodes) {
+            let nodeType = node.nodeType === 1 ? 'Элемент' : 
+                           node.nodeType === 3 ? 'Текст' : 
+                           node.nodeType === 8 ? 'Комментарий' : 
+                           'Другой';
+            node.textContent += ` (${nodeType})`; // добавляем тип узла к тексту
+            console.log(node.textContent); // выводим обновленный текст
+        }
+    </script>
+
+</body>
+</html>

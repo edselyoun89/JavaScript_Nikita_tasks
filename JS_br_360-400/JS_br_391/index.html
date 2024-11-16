@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="first">
+        <p>Первый абзац</p>
+    </div>
+    <div id="second">
+        <p>Второй абзац</p>
+    </div>
+
+    <script>
+        let secondDiv = document.querySelector('#second');
+
+        console.log('previousSibling:', secondDiv.previousSibling); // Узел между div (возможно, текстовый узел)
+        console.log('previousElementSibling:', secondDiv.previousElementSibling); // Тег <div id="first">
+    </script>
+
+</body>
+</html>

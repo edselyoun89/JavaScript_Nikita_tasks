@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>text</title>
+        <style>
+            ul {
+                list-style-type: none; /* Убираем маркеры списка для наглядности */
+                padding: 0; /* Убираем отступы */
+            }
+    
+            li {
+                margin: 5px; /* Добавляем небольшой отступ между элементами списка */
+                padding: 10px;
+                background-color: lightblue; /* Цвет фона для каждого элемента списка */
+            }
+        </style>
+    </head>
+    <body>
+    
+        <ul id="myList">
+            <li>Элемент 1</li>
+            <li>Элемент 2</li>
+            <li>Элемент 3</li>
+            <li>Элемент 4</li>
+        </ul>
+        <button id="myButton">Стилизация элементов списка</button>
+    
+        <script>
+            const myList = document.getElementById('myList');
+            const myButton = document.getElementById('myButton');
+    
+            myButton.addEventListener('click', function() {
+                const listItems = myList.getElementsByTagName('li'); // Получаем все элементы li
+    
+                // Перебираем каждый элемент li и устанавливаем cssFloat
+                for (let i = 0; i < listItems.length; i++) {
+                    listItems[i].style.cssFloat = 'left'; // Устанавливаем свойство float
+                }
+            });
+        </script>
+    
+    </body>
+</html>

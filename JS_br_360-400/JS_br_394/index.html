@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="elem">txt<b>tag</b><!--com-->txt<b>tag</b><!--com--></div>
+
+    <script>
+        let elem = document.querySelector('#elem');
+
+        for (let node of elem.childNodes) {
+            if (node.nodeType === 1 || node.nodeType === 3) { // 1 - элемент, 3 - текст
+                console.log(node);
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <p id="elem" class="www ggg zzz">Пример абзаца.</p>
+
+    <script>
+        const elem = document.getElementById('elem');
+
+        // Проверяем наличие класса ggg
+        const hasClassGgg = elem.classList.contains('ggg');
+
+        // Выводим результат проверки в консоль
+        if (hasClassGgg) {
+            console.log('Элемент содержит класс ggg.');
+        } else {
+            console.log('Элемент не содержит класс ggg.');
+        }
+    </script>
+
+</body>
+</html>

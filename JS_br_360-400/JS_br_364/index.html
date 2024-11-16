@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+    <h1>Задания на JavaScript</h1>
+
+    <!-- Задание 1 -->
+    <input type="text" id="input1" placeholder="Введите текст">
+    <p id="para1">Текст: </p>
+
+    <!-- Задание 2 -->
+    <input type="number" id="input2-1" placeholder="Число 1">
+    <input type="number" id="input2-2" placeholder="Число 2">
+    <input type="number" id="input2-3" placeholder="Число 3">
+    <button id="btn2">Сумма</button>
+    <p id="para2">Сумма: </p>
+
+    <!-- Задание 3 -->
+    <input type="number" id="input3" placeholder="Введите число" onblur="sumDigits()">
+    <p id="para3">Сумма цифр: </p>
+
+    <!-- Задание 4 -->
+    <input type="text" id="input4" placeholder="Введите числа через запятую" onblur="average()">
+    <p id="para4">Среднее арифметическое: </p>
+
+    <!-- Задание 5 -->
+    <input type="text" id="input5" placeholder="Введите ФИО" onblur="splitFIO()">
+    <input type="text" id="input5-1" placeholder="Фамилия">
+    <input type="text" id="input5-2" placeholder="Имя">
+    <input type="text" id="input5-3" placeholder="Отчество">
+
+    <!-- Задание 6 -->
+    <input type="text" id="input6" placeholder="Введите ФИО" onblur="capitalizeFIO()">
+
+    <!-- Задание 7 -->
+    <input type="text" id="input7" placeholder="Введите текст" onblur="countWords()">
+    <p id="para7">Количество слов: </p>
+
+    <!-- Задание 8 -->
+    <input type="text" id="input8" placeholder="Введите дату (31.12.2016)" onblur="formatDate()">
+
+    <!-- Задание 9 -->
+    <input type="text" id="input9" placeholder="Введите слово">
+    <button id="btn9" onclick="checkPalindrome()">Проверить</button>
+    <p id="para9"></p>
+
+    <!-- Задание 10 -->
+    <input type="number" id="input10" placeholder="Введите число" onblur="checkContainsThree()">
+    <p id="para10"></p>
+
+    <!-- Задание 11 -->
+    <p>Абзац 1</p>
+    <p>Абзац 2</p>
+    <p>Абзац 3</p>
+    <button id="btn11" onclick="numberParagraphs()">Нумеровать абзацы</button>
+
+    <!-- Задание 12 -->
+    <a href="http://example.com">Ссылка 1</a><br>
+    <a href="http://example.com">Ссылка 2</a><br>
+    <button id="btn12" onclick="addHrefToLinks()">Добавить href</button>
+
+    <!-- Задание 13 -->
+    <a href="http://example.com">Ссылка 1</a><br>
+    <a href="https://example.com">Ссылка 2</a><br>
+    <button id="btn13" onclick="addArrowToLinks()">Добавить стрелку</button>
+
+    <!-- Задание 14 -->
+    <p>4</p>
+    <p>9</p>
+    <p>16</p>
+    <button id="btn14" onclick="squareNumbers()">Квадрат чисел</button>
+
+    <!-- Задание 15 -->
+    <input type="text" id="input15" placeholder="Введите дату (31.12.2016)" onblur="getDayOfWeek()">
+    <p id="para15">День недели: </p>
+
+    <!-- Задание 16 -->
+    <input type="number" id="input16" value="0">
+    <button id="btn16-plus" onclick="changeValue(1)">+1</button>
+    <button id="btn16-minus" onclick="changeValue(-1)">-1</button>
+
+    <!-- Задание 17 -->
+    <p id="para17" onclick="incrementCounter()">Абзац 1</p>
+    <p id="para17-2" onclick="incrementCounter()">Абзац 2</p>
+    <input type="text" id="input17" value="0" readonly>
+
+    <!-- Задание 18 -->
+    <div>Пример текста</div>
+    <div>Еще один текст длиннее</div>
+    <button id="btn18" onclick="truncateText()">Обрезать текст</button>
+
+    <!-- Задание 19 -->
+    <input type="text" id="input19">
+    <button id="btn19" onclick="generateRandomString()">Сгенерировать строку</button>
+
+    <!-- Задание 20 -->
+    <input type="text" id="input20">
+    <button id="btn20" onclick="shuffleString()">Перемешать строку</button>
+
+    <!-- Задание 21 -->
+    <input type="number" id="input21" placeholder="Температура в Фаренгейтах">
+    <button id="btn21" onclick="convertFtoC()">Преобразовать в Цельсии</button>
+    <p id="para21">Температура в Цельсии: </p>
+
+    <!-- Задание 22 -->
+    <input type="number" id="input22" placeholder="Введите число">
+    <button id="btn22" onclick="factorial()">Вычислить факториал</button>
+    <p id="para22">Факториал: </p>
+
+    <!-- Задание 23 -->
+    <input type="number" id="input23-1" placeholder="Коэффициент a">
+    <input type="number" id="input23-2" placeholder="Коэффициент b">
+    <input type="number" id="input23-3" placeholder="Коэффициент c">
+    <button id="btn23" onclick="calculateRoots()">Найти корни</button>
+    <p id="para23">Корни: </p>
+
+    <script>
+        function sumDigits() {
+            const input = document.getElementById('input3').value;
+            const sum = input.split('').reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+            document.getElementById('para3').innerText = `Сумма цифр: ${sum}`;
+        }
+
+        function average() {
+            const input = document.getElementById('input4').value;
+            const numbers = input.split(',').map(Number);
+            const avg = numbers.reduce((acc, num) => acc + num, 0) / numbers.length;
+            document.getElementById('para4').innerText = `Среднее арифметическое: ${avg}`;
+        }
+
+        function splitFIO() {
+            const fio = document.getElementById('input5').value.split(' ');
+            document.getElementById('input5-1').value = fio[0];
+            document.getElementById('input5-2').value = fio[1];
+            document.getElementById('input5-3').value = fio[2];
+        }
+
+        function capitalizeFIO() {
+            const fio = document.getElementById('input6').value.split(' ');
+            const capitalizedFIO = fio.map(name => name.charAt(0).toUpperCase() + name.slice(1)).join(' ');
+            document.getElementById('input6').value = capitalizedFIO;
+        }
+
+        function countWords() {
+            const text = document.getElementById('input7').value;
+            const wordCount = text.trim() ? text.split(/\s+/).length : 0;
+            document.getElementById('para7').innerText = `Количество слов: ${wordCount}`;
+        }
+
+        function formatDate() {
+            const date = document.getElementById('input8').value.split('.');
+            const formattedDate = `${date[2]}-${date[1]}-${date[0]}`;
+            document.getElementById('input8').value = formattedDate;
+        }
+
+        function checkPalindrome() {
+            const word = document.getElementById('input9').value;
+            const isPalindrome = word === word.split('').reverse().join('');
+            document.getElementById('para9').innerText = isPalindrome ? 'Это палиндром.' : 'Это не палиндром.';
+        }
+
+        function checkContainsThree() {
+            const number = document.getElementById('input10').value;
+            const containsThree = number.includes('3');
+            document.getElementById('para10').innerText = containsThree ? 'Содержит цифру 3.' : 'Не содержит цифру 3.';
+        }
+
+        function numberParagraphs() {
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach((para, index) => {
+                para.innerText += ` (Порядковый номер: ${index + 1})`;
+            });
+        }
+
+        function addHrefToLinks() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.innerText += ` (${link.href})`;
+            });
+        }
+
+        function addArrowToLinks() {
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                if (link.href.startsWith('http://')) {
+                    link.innerText += ' &rarr;';
+                }
+            });
+        }
+
+        function squareNumbers() {
+            const paragraphs = document.querySelectorAll('p');
+            paragraphs.forEach(para => {
+                const number = parseFloat(para.innerText);
+                if (!isNaN(number)) {
+                    para.innerText = `Квадрат: ${number * number}`;
+                }
+            });
+        }
+
+        function getDayOfWeek() {
+            const input = document.getElementById('input15').value;
+            const date = new Date(input.split('.').reverse().join('-'));
+            const days = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+            const dayName = days[date.getDay()];
+            document.getElementById('para15').innerText = `День недели: ${dayName}`;
+        }
+
+        function changeValue(delta) {
+            const input = document.getElementById('input16');
+            input.value = Math.max(0, parseInt(input.value) + delta);
+        }
+
+        let clickCount = 0;
+        function incrementCounter() {
+            clickCount++;
+            document.getElementById('input17').value = clickCount;
+        }
+
+        function truncateText() {
+            const divs = document.querySelectorAll('div');
+            divs.forEach(div => {
+                const text = div.innerText;
+                div.innerText = text.length > 10 ? text.slice(0, 10) + '...' : text;
+            });
+        }
+
+        function generateRandomString() {
+            const randomString = Math.random().toString(36).substring(2, 10);
+            document.getElementById('input19').value = randomString;
+        }
+
+        function shuffleString() {
+            const input = document.getElementById('input20').value;
+            const shuffledString = input.split('').sort(() => Math.random() - 0.5).join('');
+            document.getElementById('input20').value = shuffledString;
+        }
+
+        function convertFtoC() {
+            const fahrenheit = parseFloat(document.getElementById('input21').value);
+            const celsius = (fahrenheit - 32) * 5 / 9;
+            document.getElementById('para21').innerText = `Температура в Цельсии: ${celsius.toFixed(2)}`;
+        }
+
+        function factorial() {
+            const number = parseInt(document.getElementById('input22').value);
+            const result = number < 0 ? 'Не определен' : number === 0 ? 1 : Array.from({length: number}, (_, i) => i + 1).reduce((acc, val) => acc * val);
+            document.getElementById('para22').innerText = `Факториал: ${result}`;
+        }
+
+        function calculateRoots() {
+            const a = parseFloat(document.getElementById('input23-1').value);
+            const b = parseFloat(document.getElementById('input23-2').value);
+            const c = parseFloat(document.getElementById('input23-3').value);
+            const discriminant = b * b - 4 * a * c;
+            let roots = '';
+
+            if (discriminant > 0) {
+                const root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+                const root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+                roots = `Корни: ${root1}, ${root2}`;
+            } else if (discriminant === 0) {
+                const root = -b / (2 * a);
+                roots = `Корень: ${root}`;
+            } else {
+                roots = 'Нет корней';
+            }
+            document.getElementById('para23').innerText = roots;
+        }
+    </script>
+</body>
+</html>

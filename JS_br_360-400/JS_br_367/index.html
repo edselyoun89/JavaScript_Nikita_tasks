@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <input id="elem" value="text">
+    
+    <script>
+        // Удаление атрибута value
+        const inputElement = document.getElementById('elem');
+        inputElement.removeAttribute('value');
+    
+        // Проверка, удален ли атрибут
+        console.log(inputElement.getAttribute('value')); // Выведет: null
+    </script>
+    
+</body>
+</html>

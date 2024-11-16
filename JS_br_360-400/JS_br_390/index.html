@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <div id="parent">
+        <p class="www">text 1</p>
+        <p class="www">text 2</p>
+        <p class="www">text 3</p>
+        <p class="ggg">text 4</p>
+        <p class="ggg">text 5</p>
+        <p class="ggg">text 6</p>
+    </div>
+
+    <script>
+        let parent = document.querySelector('#parent'); // Получаем родительский элемент
+        let elems1 = parent.querySelectorAll('.www'); // Находим элементы с классом www
+        let elems2 = parent.querySelectorAll('.ggg'); // Находим элементы с классом ggg
+
+        console.log('Элементы с классом www:', elems1); // Выводим найденные элементы в консоль
+        console.log('Элементы с классом ggg:', elems2); // Выводим найденные элементы в консоль
+    </script>
+
+</body>
+</html>

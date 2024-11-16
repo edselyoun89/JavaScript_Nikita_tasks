@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+    <style>
+        .colored {
+            color: red; /* Красный цвет для абзаца */
+        }
+
+        .bold {
+            font-weight: bold; /* Жирный текст */
+        }
+
+        .strikethrough {
+            text-decoration: line-through; /* Перечеркнутый текст */
+        }
+    </style>
+</head>
+<body>
+
+    <p id="myParagraph">Этот абзац будет изменяться</p>
+    <button id="strikeButton">Перечеркнуть</button>
+    <button id="boldButton">Сделать жирным</button>
+    <button id="redButton">Сделать красным</button>
+
+    <script>
+        const paragraph = document.getElementById('myParagraph');
+        const strikeButton = document.getElementById('strikeButton');
+        const boldButton = document.getElementById('boldButton');
+        const redButton = document.getElementById('redButton');
+
+        strikeButton.addEventListener('click', function() {
+            paragraph.classList.toggle('strikethrough'); // Переключение класса 'strikethrough'
+        });
+
+        boldButton.addEventListener('click', function() {
+            paragraph.classList.toggle('bold'); // Переключение класса 'bold'
+        });
+
+        redButton.addEventListener('click', function() {
+            paragraph.classList.toggle('colored'); // Переключение класса 'colored'
+        });
+    </script>
+
+</body>
+</html>

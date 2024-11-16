@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text</title>
+</head>
+<body>
+
+    <!-- Задание 1 -->
+    <div id="elem" data-text="str">text</div>
+
+    <!-- Задание 2 -->
+    <div data-num="1">text</div>
+    <div data-num="2">text</div>
+    <div data-num="3">text</div>
+    <div data-num="4">text</div>
+    <div data-num="5">text</div>
+
+    <!-- Задание 3 -->
+    <button id="clickBtn">Click me</button>
+    <button id="showBtn">Show Clicks</button>
+
+    <!-- Задание 4 -->
+    <input id="inputLength" data-length="5">
+
+    <!-- Задание 5 -->
+    <input id="inputRange" data-min="5" data-max="10">
+
+    <script>
+        // Задание 1
+        const elem = document.getElementById('elem');
+        elem.addEventListener('click', () => {
+            elem.textContent += elem.dataset.text;
+        });
+
+        // Задание 2
+        const divs = document.querySelectorAll('div[data-num]');
+        divs.forEach(div => {
+            div.addEventListener('click', () => {
+                div.textContent += div.dataset.num;
+            });
+        });
+
+        // Задание 3
+        const clickBtn = document.getElementById('clickBtn');
+        const showBtn = document.getElementById('showBtn');
+        clickBtn.dataset.clicks = 0;
+
+        clickBtn.addEventListener('click', () => {
+            clickBtn.dataset.clicks++;
+        });
+
+        showBtn.addEventListener('click', () => {
+            alert(`Clicks: ${clickBtn.dataset.clicks}`);
+        });
+
+        // Задание 4
+        const inputLength = document.getElementById('inputLength');
+        inputLength.addEventListener('blur', () => {
+            const length = inputLength.dataset.length;
+            if (inputLength.value.length != length) {
+                alert(`Введите ровно ${length} символов.`);
+            }
+        });
+
+        // Задание 5
+        const inputRange = document.getElementById('inputRange');
+        inputRange.addEventListener('blur', () => {
+            const min = parseInt(inputRange.dataset.min);
+            const max = parseInt(inputRange.dataset.max);
+            const valueLength = inputRange.value.length;
+
+            if (valueLength < min || valueLength > max) {
+                alert(`Количество символов должно быть от ${min} до ${max}.`);
+            }
+        });
+    </script>
+
+</body>
+</html>
